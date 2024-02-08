@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "Marker 1",
+        "latitude": 48.1372,
+        "longitude": 11.5755,
+        "description": "Description of Marker 1",
+        "address": "Address of Marker 1",
+        "image": "/marker1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Marker 2",
+        "latitude": 48.1384,
+        "longitude": 11.5755,
+        "description": "Description of Marker 2",
+        "address": "Address of Marker 2",
+        "image": "/images/marker2.jpg"
+      }
+  ]
+  

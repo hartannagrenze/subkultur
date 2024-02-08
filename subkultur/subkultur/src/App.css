@@ -26,7 +26,8 @@
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #0020c2;
+  color: white;
   transform: translate(-25%, -25%);
   display: flex;
   justify-content: center;

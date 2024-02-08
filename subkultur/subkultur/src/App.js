@@ -1,31 +1,33 @@
+// App.js
+import React, { useState } from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
-import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
-import {Icon, divIcon, point} from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Icon, divIcon, point } from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
-
+import markerData from './marker.json';
+import OrteListe from './OrteListe';
+import Header from './Header.js';
 
 export default function App() {
-  //markers
-  const markers = [
-    {
-      geocode: [48.1372, 11.5755],
-      popup: "Munich1",
-    },
-    {
-      geocode: [48.1384, 11.5755],
-      popup: "Munich2",
-    },
-    {
-      geocode: [48.1369, 11.5755],
-      popup: "Munich3",
-    },
-  ]
+  const [selectedOrt, setSelectedOrt] = useState(null);
+  const [showOrteListe, setShowOrteListe] = useState(false);
+  
+  const markers = markerData.map(marker => ({
+    geocode: [marker.latitude, marker.longitude],
+    popup: marker.name,
+    image: marker.image,
+    description: marker.description,
+    address: marker.address,
+    name: marker.name // Fügen Sie den Namen des Ortes zu den Marker-Daten hinzu
+  }));
+
   const customIcon = new Icon({
     iconUrl: "./pin.png",
     iconSize: [40, 40],
   });
-  const createCustomClusterIcon = (cluster) =>{
+
+  const createCustomClusterIcon = (cluster) => {
     return new divIcon({
       html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
       className: "custom-maker-cluster",
@@ -34,23 +36,39 @@ export default function App() {
   }
 
   return (
-    <MapContainer center={[48.1372, 11.5755]} zoom={25}>
-      <TileLayer 
-        attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
-        url= "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <div className="app-container">
+      <div className="burger-menu">
+      <button onClick={() => setShowOrteListe(true)}>Orte Liste anzeigen</button>
+      {showOrteListe && <OrteListe orte={markerData} />}
+      </div>
+      <Header />
+      <MapContainer center={[48.1372, 11.5755]} zoom={25}>
+        <TileLayer
+          attribution="Stamen Toner"
+          url='https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg'>
+        </TileLayer>
 
-      <MarkerClusterGroup
-      chunkedLoading
-      iconCreateFunction={createCustomClusterIcon}
-      >
-      {markers.map(marker => (
-        <Marker position= {marker.geocode} icon={customIcon}>
-        <Popup>{marker.popup}</Popup>
-        </Marker>
-      ))}
-      </MarkerClusterGroup>
-    </MapContainer>
-  
+        <MarkerClusterGroup
+          chunkedLoading
+          iconCreateFunction={createCustomClusterIcon}
+        >
+          {markers.map((marker, index) => (
+            <Marker key={index} position={marker.geocode} icon={customIcon}>
+              <Popup>
+                <div>
+                  <h2 style={{ marginBottom: '5px' }}>{marker.popup}</h2>
+                  <img src={marker.image} alt={marker.popup} style={{ width: '100px' }} />
+                  <p>{marker.description}</p>
+                  <p>{marker.address}</p>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
+      </MapContainer>
+      {!selectedOrt && (
+        <OrteListe orte={markers} onOrtAuswahl={setSelectedOrt} />
+      )}
+    </div>
   );
 }
