@@ -7,6 +7,20 @@
   pointer-events: none;
 }
 
+.header {
+  position: absolute;
+  top: 20px; /* Anpassen der Position des Headers */
+  left: 20px; /* Anpassen der Position des Headers */
+  z-index: 1000; /* Stellen Sie sicher, dass der Header über der Karte liegt */
+  color: black; /* Farbe des Header-Textes */
+  font-size: 24px; /* Größe des Header-Textes */
+  font-weight: bold; /* Fettschrift des Header-Textes */
+  border-radius: 5px; /* Abrunden der Ecken */
+  padding: 10px 20px; /* Innenabstand des Headers */
+  background-color: transparent; /* Transparenter Hintergrund */
+  box-shadow: none; /* Kein Schatten */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,6 +63,7 @@
 
 .overlay-content {
   color: white; /* Farbe des Inhalts im Overlay */
+  z-index: 1001;
 }
 
 .close-btn {
@@ -57,8 +72,28 @@
   right: 10px;
   cursor: pointer;
   color: white;
-  background-color: black;
+  background-color: none;
+  
 }
+.app-container {
+  position: relative;
+}
+
+.list-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999; /* Stellen Sie sicher, dass der Button über anderen Elementen liegt */
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -66,15 +101,18 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header {
+  position: absolute;
+  top: 20px; /* Anpassen der Position des Headers */
+  left: 20px; /* Anpassen der Position des Headers */
+  z-index: 1000; /* Stellen Sie sicher, dass der Header über der Karte liegt */
+  color: black; /* Farbe des Header-Textes */
+  font-size: 24px; /* Größe des Header-Textes */
+  font-weight: bold; /* Fettschrift des Header-Textes */
+  border-radius: 5px; /* Abrunden der Ecken */
+  padding: 10px 20px; /* Innenabstand des Headers */
+  background-color: transparent; /* Transparenter Hintergrund */
+  box-shadow: none; /* Kein Schatten */
 }
 
 .App-link {

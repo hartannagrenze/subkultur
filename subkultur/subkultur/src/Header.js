@@ -3,7 +3,7 @@ import React from 'react';
 
 function Header() {
   return (
-    <header>
+    <header className="header">
       <h1>Subkulturkarte</h1>
       {/* Weitere Header-Elemente können hier hinzugefügt werden */}
     </header>

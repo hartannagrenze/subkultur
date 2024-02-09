@@ -4,6 +4,7 @@ function OrteListe({ orte, onOrtAuswahl }) {
   const handleOrtClick = (ort) => {
     onOrtAuswahl(ort);
   };
+  
 
   return (
     <div>

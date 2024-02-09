@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { divIcon, point } from 'leaflet';
@@ -26,7 +27,6 @@ export default function App() {
     description: marker.description,
     address: marker.address,
     name: marker.name,
-    markerimage: marker.markerimage,
     visitedCount: visitedCounts[marker.id] || 0
   }));
 
@@ -67,13 +67,13 @@ export default function App() {
       {showOrteListe && (
         <div className="overlay">
           <div className="overlay-content">
-            <button className="close-btn" onClick={() => setShowOrteListe(false)}>X</button>
+            <div className="close-btn" onClick={() => setShowOrteListe(false)}>X</div >
             <OrteListe orte={markers} onOrtAuswahl={handleOrtClick} />
           </div>
         </div>
       )}
-      <div className="burger-menu">
-        <button onClick={() => setShowOrteListe(true)}>Orte Liste anzeigen</button>
+      <div className="list-button">
+        <div onClick={() => setShowOrteListe(true)}> Liste </div>
       </div>
       <MapContainer center={[48.1372, 11.5755]} zoom={25} ref={mapRef}>
         <TileLayer
@@ -86,10 +86,12 @@ export default function App() {
           iconCreateFunction={createCustomClusterIcon}
         >
           {markers.map((marker, index) => {
-            const customIcon = new divIcon({
-              html: `<img src="${marker.markerimage}" style="width: 50px; height: 50px; background-color: transparent; border: none;" />`,
-              iconSize: [50, 50],
-            });
+          const customIcon = L.icon({
+            iconUrl: marker.image,
+            iconSize: [50, 50],
+          });
+
+
 
             return (
               <Marker key={index} position={marker.geocode} icon={customIcon}>
@@ -100,8 +102,8 @@ export default function App() {
                     <p>{marker.description}</p>
                     <p>{marker.address}</p>
                     <p>Visited Count: {visitedCounts[marker.id]}</p>
-                    <button onClick={() => handleVote(marker.id, 1)}>I've been here</button>
-                    <button onClick={() => handleVote(marker.id, -1)}>Not visited yet</button>
+                    <button onClick={() => handleVote(marker.id, 1)}>Ich war da</button>
+                    <button onClick={() => handleVote(marker.id, -1)}>Ich war noch nicht da</button>
                   </div>
                 </Popup>
               </Marker>
