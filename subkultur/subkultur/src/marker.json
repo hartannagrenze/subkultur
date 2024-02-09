@@ -6,7 +6,8 @@
         "longitude": 11.5755,
         "description": "Description of Marker 1",
         "address": "Address of Marker 1",
-        "image": "/marker1.jpg"
+        "image": "/marker1.jpg",
+        "markerimage": "/marker1.png"
       },
       {
         "id": 2,
@@ -15,7 +16,8 @@
         "longitude": 11.5755,
         "description": "Description of Marker 2",
         "address": "Address of Marker 2",
-        "image": "/images/marker2.jpg"
+        "image": "/images/marker2.jpg",
+        "markerimage": "/marker2.png"
       }
   ]
   

@@ -35,6 +35,29 @@
   font-weight: 900;
   font-size: 1.5rem;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%; /* Breite des Overlays */
+  height: 100%; /* Höhe des Overlays */
+  background-color: black; /* Hintergrundfarbe des Overlays */
+  z-index: 1000; /* Z-Index, um sicherzustellen, dass das Overlay über allem anderen liegt */
+  overflow-y: auto; /* Erlauben Sie das Scrollen, wenn der Inhalt des Overlays die Höhe überschreitet */
+  padding: 20px; /* Innenabstand des Overlays */
+}
+
+.overlay-content {
+  color: white; /* Farbe des Inhalts im Overlay */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
