@@ -88,7 +88,7 @@ export default function App() {
           {markers.map((marker, index) => {
           const customIcon = L.icon({
             iconUrl: marker.image,
-            iconSize: [50, 50],
+            iconSize: [60],
           });
 
 
