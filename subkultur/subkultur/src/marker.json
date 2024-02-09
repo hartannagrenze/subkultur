@@ -7,7 +7,8 @@
         "description": "Description of Marker 1",
         "address": "Address of Marker 1",
         "image": "/marker1.jpg",
-        "markerimage": "/marker1.png"
+        "markerimage": "/marker1.png",
+        "visitedCount": 0
       },
       {
         "id": 2,
@@ -17,7 +18,8 @@
         "description": "Description of Marker 2",
         "address": "Address of Marker 2",
         "image": "/images/marker2.jpg",
-        "markerimage": "/marker2.png"
+        "markerimage": "/marker2.png",
+        "visitedCount": 0
       }
   ]
   

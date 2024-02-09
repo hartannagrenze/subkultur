@@ -8,17 +8,14 @@ function OrteListe({ orte, onOrtAuswahl }) {
   return (
     <div>
       <h2>Orte</h2>
-      <ul>
-        {orte.map((ort, index) => (
-          <li key={index} onClick={() => handleOrtClick(ort)}>
-            {ort.name}
-          </li>
-        ))}
-      </ul>
+      {orte.map((ort, index) => (
+        <div key={index} onClick={() => handleOrtClick(ort)}>
+          {ort.name}
+        </div>
+      ))}
     </div>
   );
 }
-
 export default OrteListe;
 
 

@@ -12,24 +12,23 @@ export default function App() {
   const [selectedOrt, setSelectedOrt] = useState(null);
   const [showOrteListe, setShowOrteListe] = useState(false);
   const mapRef = useRef(null);
+  const [visitedCounts, setVisitedCounts] = useState(() => {
+    // Initialize visited counts from localStorage, or empty object if not available
+    const savedCounts = localStorage.getItem('visitedCounts');
+    return savedCounts ? JSON.parse(savedCounts) : {};
+  });
 
   const markers = markerData.map(marker => ({
+    id: marker.id,
     geocode: [marker.latitude, marker.longitude],
     popup: marker.name,
     image: marker.image,
     description: marker.description,
     address: marker.address,
     name: marker.name,
-    markerimage: marker.markerimage
+    markerimage: marker.markerimage,
+    visitedCount: visitedCounts[marker.id] || 0
   }));
-
-  const createCustomClusterIcon = (cluster) => {
-    return new divIcon({
-      html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
-      className: "custom-marker-cluster",
-      iconSize: point(33, 33, true),
-    });
-  }
 
   useEffect(() => {
     if (mapRef.current && selectedOrt && selectedOrt.geocode) {
@@ -39,7 +38,27 @@ export default function App() {
 
   const handleOrtClick = (ort) => {
     setSelectedOrt(ort);
-    setShowOrteListe(false); // Schließen Sie das Overlay, wenn ein Ort ausgewählt wurde
+    setShowOrteListe(false);
+  };
+
+  const handleVote = (markerId, increment) => {
+    setVisitedCounts(prevCounts => {
+      const newCounts = {
+        ...prevCounts,
+        [markerId]: (prevCounts[markerId] || 0) + increment
+      };
+      // Save updated counts to localStorage
+      localStorage.setItem('visitedCounts', JSON.stringify(newCounts));
+      return newCounts;
+    });
+  };
+
+  const createCustomClusterIcon = (cluster) => {
+    return new divIcon({
+      html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
+      className: "custom-marker-cluster",
+      iconSize: point(33, 33, true),
+    });
   };
 
   return (
@@ -68,7 +87,7 @@ export default function App() {
         >
           {markers.map((marker, index) => {
             const customIcon = new divIcon({
-              html: `<img src="${marker.markerimage}" style="width: 50px; height: 50px;" />`,
+              html: `<img src="${marker.markerimage}" style="width: 50px; height: 50px; background-color: transparent; border: none;" />`,
               iconSize: [50, 50],
             });
 
@@ -80,6 +99,9 @@ export default function App() {
                     <img src={marker.image} alt={marker.popup} style={{ width: '100px' }} />
                     <p>{marker.description}</p>
                     <p>{marker.address}</p>
+                    <p>Visited Count: {visitedCounts[marker.id]}</p>
+                    <button onClick={() => handleVote(marker.id, 1)}>I've been here</button>
+                    <button onClick={() => handleVote(marker.id, -1)}>Not visited yet</button>
                   </div>
                 </Popup>
               </Marker>
