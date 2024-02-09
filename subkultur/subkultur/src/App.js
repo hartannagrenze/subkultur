@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { divIcon, point } from 'leaflet';
@@ -68,7 +67,7 @@ export default function App() {
         <div className="overlay">
           <div className="overlay-content">
             <div className="close-btn" onClick={() => setShowOrteListe(false)}>X</div >
-            <OrteListe orte={markers} onOrtAuswahl={handleOrtClick} />
+            <OrteListe orte={markers} address={markers} onOrtAuswahl={handleOrtClick} />
           </div>
         </div>
       )}
@@ -86,11 +85,10 @@ export default function App() {
           iconCreateFunction={createCustomClusterIcon}
         >
           {markers.map((marker, index) => {
-          const customIcon = L.icon({
-            iconUrl: marker.image,
-            iconSize: [60],
+          const customIcon = new divIcon({
+            html: `<img src="${marker.image}" style="width: 50px; height: auto;" />`,
+            iconSize: [50, 50],
           });
-
 
 
             return (

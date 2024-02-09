@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 function OrteListe({ orte, onOrtAuswahl }) {
   const handleOrtClick = (ort) => {
@@ -8,10 +9,10 @@ function OrteListe({ orte, onOrtAuswahl }) {
 
   return (
     <div>
-      <h2>Orte</h2>
       {orte.map((ort, index) => (
         <div key={index} onClick={() => handleOrtClick(ort)}>
-          {ort.name}
+        <div className='liste-marker'>{ort.name}</div>
+        <div className='liste-adresse'>{ort.address}</div>
         </div>
       ))}
     </div>

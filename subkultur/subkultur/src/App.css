@@ -21,6 +21,17 @@
   box-shadow: none; /* Kein Schatten */
 }
 
+.liste-adresse{
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.liste-marker{
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: -2px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
