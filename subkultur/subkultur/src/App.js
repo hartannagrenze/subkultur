@@ -88,7 +88,7 @@ export default function App() {
           {markers.map((marker, index) => {
           const customIcon = new Icon({
             iconUrl: marker.image,
-            iconSize: [38]
+            iconSize: [38,38]
           });
 
             return (
