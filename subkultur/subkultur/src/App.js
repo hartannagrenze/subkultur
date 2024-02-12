@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { divIcon, point } from 'leaflet';
+import { divIcon, point, Icon} from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import markerData from './marker.json';
 import OrteListe from './OrteListe';
@@ -28,6 +28,7 @@ export default function App() {
     name: marker.name,
     visitedCount: visitedCounts[marker.id] || 0
   }));
+
 
   useEffect(() => {
     if (mapRef.current && selectedOrt && selectedOrt.geocode) {
@@ -67,7 +68,7 @@ export default function App() {
         <div className="overlay">
           <div className="overlay-content">
             <div className="close-btn" onClick={() => setShowOrteListe(false)}>X</div >
-            <OrteListe orte={markers} address={markers} onOrtAuswahl={handleOrtClick} />
+            <OrteListe orte={markers} onOrtAuswahl={handleOrtClick} />
           </div>
         </div>
       )}
@@ -85,11 +86,10 @@ export default function App() {
           iconCreateFunction={createCustomClusterIcon}
         >
           {markers.map((marker, index) => {
-          const customIcon = new divIcon({
-            html: `<img src="${marker.image}" style="width: 50px; height: auto;" />`,
-            iconSize: [50, 50],
+          const customIcon = new Icon({
+            iconUrl: marker.image,
+            iconSize: [38]
           });
-
 
             return (
               <Marker key={index} position={marker.geocode} icon={customIcon}>

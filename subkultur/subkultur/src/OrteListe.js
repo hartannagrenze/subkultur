@@ -13,6 +13,7 @@ function OrteListe({ orte, onOrtAuswahl }) {
         <div key={index} onClick={() => handleOrtClick(ort)}>
         <div className='liste-marker'>{ort.name}</div>
         <div className='liste-adresse'>{ort.address}</div>
+        <hr className='trennlinie' />
         </div>
       ))}
     </div>

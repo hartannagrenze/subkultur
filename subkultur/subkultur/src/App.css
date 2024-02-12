@@ -32,6 +32,13 @@
   margin-bottom: -2px;
 }
 
+.trennlinie {
+  border: 1px;
+  color: white;
+  border-top: 1px solid #ccc; /* oder wählen Sie eine andere Linienart und Farbe */
+  margin: 5px 0; /* optional: fügt etwas Abstand oberhalb und unterhalb der Trennlinie hinzu */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -86,6 +93,12 @@
   background-color: none;
   
 }
+
+.custom-marker-cluster {
+  background-color: black;
+  margin: 29px;
+}
+
 .app-container {
   position: relative;
 }
