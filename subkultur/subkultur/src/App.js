@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { divIcon, point, Icon} from 'leaflet';
+import { divIcon, Icon } from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import markerData from './marker.json';
 import OrteListe from './OrteListe';
@@ -12,11 +12,6 @@ export default function App() {
   const [selectedOrt, setSelectedOrt] = useState(null);
   const [showOrteListe, setShowOrteListe] = useState(false);
   const mapRef = useRef(null);
-  const [visitedCounts, setVisitedCounts] = useState(() => {
-    // Initialize visited counts from localStorage, or empty object if not available
-    const savedCounts = localStorage.getItem('visitedCounts');
-    return savedCounts ? JSON.parse(savedCounts) : {};
-  });
 
   const markers = markerData.map(marker => ({
     id: marker.id,
@@ -26,13 +21,16 @@ export default function App() {
     description: marker.description,
     address: marker.address,
     name: marker.name,
-    visitedCount: visitedCounts[marker.id] || 0
+    zeiten: marker.zeiten,
+    betreibende: marker.betreibende,
+    kommerziell: marker.kommerziell,
+    grösse: marker.grösse,
+    gestaltung: marker.gestaltung,
   }));
-
 
   useEffect(() => {
     if (mapRef.current && selectedOrt && selectedOrt.geocode) {
-      mapRef.current.setView(selectedOrt.geocode);
+      mapRef.current.setView(selectedOrt.geocode, 65); // Zoom auf 25
     }
   }, [selectedOrt]);
 
@@ -41,23 +39,12 @@ export default function App() {
     setShowOrteListe(false);
   };
 
-  const handleVote = (markerId, increment) => {
-    setVisitedCounts(prevCounts => {
-      const newCounts = {
-        ...prevCounts,
-        [markerId]: (prevCounts[markerId] || 0) + increment
-      };
-      // Save updated counts to localStorage
-      localStorage.setItem('visitedCounts', JSON.stringify(newCounts));
-      return newCounts;
-    });
-  };
 
   const createCustomClusterIcon = (cluster) => {
     return new divIcon({
       html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
       className: "custom-marker-cluster",
-      iconSize: point(33, 33, true),
+      iconSize: [33, 33],
     });
   };
 
@@ -78,7 +65,8 @@ export default function App() {
       <MapContainer center={[48.1372, 11.5755]} zoom={25} ref={mapRef}>
         <TileLayer
           attribution="Stamen Toner"
-          url='https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg'>
+          url='https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg'
+          >  
         </TileLayer>
 
         <MarkerClusterGroup
@@ -86,22 +74,33 @@ export default function App() {
           iconCreateFunction={createCustomClusterIcon}
         >
           {markers.map((marker, index) => {
-          const customIcon = new Icon({
-            iconUrl: marker.image,
-            iconSize: [38,38]
-          });
+            const customIcon = new Icon({
+              iconUrl: marker.image,
+              iconSize: [38, 38]
+            });
 
             return (
               <Marker key={index} position={marker.geocode} icon={customIcon}>
                 <Popup>
-                  <div>
-                    <h2 style={{ marginBottom: '5px' }}>{marker.popup}</h2>
-                    <img src={marker.image} alt={marker.popup} style={{ width: '100px' }} />
-                    <p>{marker.description}</p>
-                    <p>{marker.address}</p>
-                    <p>Visited Count: {visitedCounts[marker.id]}</p>
-                    <button onClick={() => handleVote(marker.id, 1)}>Ich war da</button>
-                    <button onClick={() => handleVote(marker.id, -1)}>Ich war noch nicht da</button>
+                  <div className='frame'>
+                    <div className='block1'>
+                      <h1 className="name">{marker.popup}</h1>
+                      <p className='address'>{marker.address}</p>
+                    </div>
+                    <div className='block2'>
+                      <div className='left'>
+                        <p className = "infoblock"><strong>ZEITEN</strong> {marker.zeiten}</p>
+                        <p className = "infoblock"><strong>BETREIBENDE</strong> {marker.betreibende}</p>
+                        <p className = "infoblock"><strong>KOMMERZIELL</strong> {marker.kommerziell}</p>
+                        <p className = "infoblock"><strong>GRÖSSE</strong> {marker.grösse}</p>
+                        <p className = "infoblock"><strong>MITGESTALTUNG</strong> {marker.gestaltung}</p>
+                      </div>
+                      <div className='right'>
+                        <div className="image-container" style={{ height: 'auto', minHeight: '100px' }}>
+                          <img src={marker.image} alt={marker.popup} style={{ width: '100%', height: '100%' }} />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </Popup>
               </Marker>

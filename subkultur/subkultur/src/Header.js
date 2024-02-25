@@ -1,13 +1,10 @@
-// Header.js
 import React from 'react';
 
-function Header() {
+export default function Header() {
   return (
     <header className="header">
-      <h1>Subkulturkarte</h1>
+      <img src="/favicon.ico" alt="Logo" />
       {/* Weitere Header-Elemente können hier hinzugefügt werden */}
     </header>
   );
 }
-
-export default Header;

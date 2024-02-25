@@ -7,19 +7,12 @@
   pointer-events: none;
 }
 
-.header {
-  position: absolute;
-  top: 20px; /* Anpassen der Position des Headers */
-  left: 20px; /* Anpassen der Position des Headers */
-  z-index: 1000; /* Stellen Sie sicher, dass der Header über der Karte liegt */
-  color: black; /* Farbe des Header-Textes */
-  font-size: 24px; /* Größe des Header-Textes */
-  font-weight: bold; /* Fettschrift des Header-Textes */
-  border-radius: 5px; /* Abrunden der Ecken */
-  padding: 10px 20px; /* Innenabstand des Headers */
-  background-color: transparent; /* Transparenter Hintergrund */
-  box-shadow: none; /* Kein Schatten */
+.header img {
+  width: 100px;
+  height: auto; /* Automatische Anpassung der Höhe, um das Seitenverhältnis beizubehalten */
+  z-index: 999;
 }
+
 
 .liste-adresse{
   font-style: italic;
@@ -34,8 +27,8 @@
 
 .trennlinie {
   border: 1px;
-  color: white;
-  border-top: 1px solid #ccc; /* oder wählen Sie eine andere Linienart und Farbe */
+  color:black;
+  border-top: 1px solid black; /* oder wählen Sie eine andere Linienart und Farbe */
   margin: 5px 0; /* optional: fügt etwas Abstand oberhalb und unterhalb der Trennlinie hinzu */
 }
 
@@ -58,7 +51,7 @@
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background-color: #0020c2;
+  background-color: #CF4637;
   color: white;
   transform: translate(-25%, -25%);
   display: flex;
@@ -73,14 +66,14 @@
   right: 0;
   width: 30%; /* Breite des Overlays */
   height: 100%; /* Höhe des Overlays */
-  background-color: black; /* Hintergrundfarbe des Overlays */
+  background-color:  #E1C14A; /* Hintergrundfarbe des Overlays */
   z-index: 1000; /* Z-Index, um sicherzustellen, dass das Overlay über allem anderen liegt */
   overflow-y: auto; /* Erlauben Sie das Scrollen, wenn der Inhalt des Overlays die Höhe überschreitet */
   padding: 20px; /* Innenabstand des Overlays */
 }
 
 .overlay-content {
-  color: white; /* Farbe des Inhalts im Overlay */
+  color: black; /* Farbe des Inhalts im Overlay */
   z-index: 1001;
 }
 
@@ -101,10 +94,9 @@
   position: absolute;
   top: 30px;
   right: 30px;
-  background-color: black;
-  border: 1px solid white;
-  color: white;
-  border-radius: 30px;
+  background-color: #E1C14A;
+  color: #CF4637;
+  border: 2px solid #CF4637;
   padding: 12px 24px;
   font-size: 18px;
   font-weight: bold;
@@ -144,4 +136,71 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.frame {
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 100%;
+}
+
+.name {
+  font-size: 30px; /* Größe der Überschrift */
+  color: #CF4637;
+  margin-bottom: 5px; /* Abstand zwischen dem Namen und der Adresse */
+  font-weight: bold;
+}
+
+.block1 .address {
+  font-size: 1rem; 
+  color: black; 
+  margin-top: -10px;
+}
+
+.block2 {
+  display: flex;
+  font-size: 15px; /* Größe des Textes */
+}
+
+.block2 .left {
+  flex: 1;
+}
+.block2 {
+  display: flex;
+}
+
+.block2 .right {
+  margin-left: 30px;
+}
+
+.image-container {
+  width: auto; /* Breite des Bildcontainers */
+  height: 100px; /* Automatische Höhe basierend auf dem Bildinhalt */
+  min-height: 100px; /* Mindesthöhe des Bildcontainers */
+  margin-right: -100px; /* Abstand zwischen dem Bildcontainer und dem Text */
+  margin-bottom: -50px; /* Abstand zwischen dem Bildcontainer und dem Text */
+}
+
+.image-container img {
+  width: 100%; /* Das Bild füllt den gesamten Container aus */
+  height: 100%; /* Das Bild füllt den gesamten Container aus */
+  object-fit: cover; /* Das Bild wird skaliert, um den gesamten Container zu füllen */
+  
+}
+.infoblock{
+  display: flex;
+  flex-direction: column;
+}
+.block2 .right {
+  margin-left: 10px;
+}
+
+.description {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.address {
+  font-size: smaller;
 }

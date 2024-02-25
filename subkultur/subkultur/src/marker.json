@@ -1,23 +1,29 @@
 [
     {
         "id": 1,
-        "name": "Marker 1",
+        "name": "Cafe Marat",
         "latitude": 48.1372,
         "longitude": 11.5755,
-        "description": "Description of Marker 1",
-        "address": "Address of Marker 1",
+        "address": "Thalkirchner Str. 102, 80337 München",
         "image": "/marker1.png",
-        "visitedCount": 0
+        "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
+        "betreibende": "Stadt",
+        "kommerziell": "nein",
+        "grösse": "20 Personen",
+        "gestaltung": "ja"
       },
       {
         "id": 2,
-        "name": "Marker 2",
+        "name": "Baldeplatz",
         "latitude": 48.1384,
         "longitude": 11.5755,
-        "description": "Description of Marker 2",
-        "address": "Address of Marker 2",
+        "address": "Baldeplatz, 80469 München",
         "image": "/marker2.png",
-        "visitedCount": 0
+        "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
+        "betreibende": "Stadt",
+        "kommerziell": "nein",
+        "grösse": "20 Personen",
+        "gestaltung": "ja"
       }
   ]
   
