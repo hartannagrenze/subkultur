@@ -60,7 +60,7 @@ export default function App() {
         </div>
       )}
       <div className="list-button">
-        <div onClick={() => setShowOrteListe(true)}> Liste </div>
+        <div onClick={() => setShowOrteListe(true)}> LISTE </div>
       </div>
       <MapContainer center={[48.1372, 11.5755]} zoom={25} ref={mapRef}>
         <TileLayer
@@ -81,7 +81,7 @@ export default function App() {
 
             return (
               <Marker key={index} position={marker.geocode} icon={customIcon}>
-                <Popup>
+                <Popup className="popup">
                   <div className='frame'>
                     <div className='block1'>
                       <h1 className="name">{marker.popup}</h1>

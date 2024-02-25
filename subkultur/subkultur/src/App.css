@@ -8,27 +8,33 @@
 }
 
 .header img {
-  width: 100px;
+  width: 150px;
   height: auto; /* Automatische Anpassung der Höhe, um das Seitenverhältnis beizubehalten */
   z-index: 999;
 }
 
+.popup{
+  border: 7px solid #CF4637;
+  border-radius: 20px;
+  background-color: white;
+}
 
 .liste-adresse{
   font-style: italic;
   margin-bottom: 10px;
+  color: white;
 }
 
 .liste-marker{
   font-weight: bold;
-  font-size: large;
+  color: white;
+  font-size: 30px;
   margin-bottom: -2px;
 }
 
 .trennlinie {
   border: 1px;
-  color:black;
-  border-top: 1px solid black; /* oder wählen Sie eine andere Linienart und Farbe */
+  border-top: 2px solid white; /* oder wählen Sie eine andere Linienart und Farbe */
   margin: 5px 0; /* optional: fügt etwas Abstand oberhalb und unterhalb der Trennlinie hinzu */
 }
 
@@ -66,7 +72,7 @@
   right: 0;
   width: 30%; /* Breite des Overlays */
   height: 100%; /* Höhe des Overlays */
-  background-color:  #E1C14A; /* Hintergrundfarbe des Overlays */
+  background-color:  black; /* Hintergrundfarbe des Overlays */
   z-index: 1000; /* Z-Index, um sicherzustellen, dass das Overlay über allem anderen liegt */
   overflow-y: auto; /* Erlauben Sie das Scrollen, wenn der Inhalt des Overlays die Höhe überschreitet */
   padding: 20px; /* Innenabstand des Overlays */
@@ -94,16 +100,17 @@
   position: absolute;
   top: 30px;
   right: 30px;
-  background-color: #E1C14A;
-  color: #CF4637;
-  border: 2px solid #CF4637;
-  padding: 12px 24px;
-  font-size: 18px;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color: #000000;
+  color: white;
+  padding: 24px 36px;
+  font-size: 25px;
   font-weight: bold;
   cursor: pointer;
   z-index: 999; /* Stellen Sie sicher, dass der Button über anderen Elementen liegt */
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
