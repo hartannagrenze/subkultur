@@ -1,0 +1,42 @@
+{
+  "question1": {
+    "strongly_agree": 0,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  },
+  "question2": {
+    "strongly_agree": 0,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  },
+  "question3": {
+    "strongly_agree": 0,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  },
+  "question4": {
+    "strongly_agree": 0,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  },
+  "question5": {
+    "strongly_agree": 0,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  }
+}
