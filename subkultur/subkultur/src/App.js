@@ -5,12 +5,14 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { divIcon, Icon } from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import markerData from './marker.json';
-import OrteListe from './OrteListe';
+import OrteListe from './OrteListe.js';
 import Header from './Header.js';
 
 export default function App() {
   const [selectedOrt, setSelectedOrt] = useState(null);
   const [showOrteListe, setShowOrteListe] = useState(false);
+  const markerRefs = useRef({}); // Schritt 1: Map für Marker-Referenzen
+  
   const mapRef = useRef(null);
   
 
@@ -29,6 +31,7 @@ export default function App() {
     gestaltung: marker.gestaltung,
   }));
 
+  
   useEffect(() => {
     if (mapRef.current && selectedOrt && selectedOrt.geocode) {
       mapRef.current.setView(selectedOrt.geocode, 65); // Zoom auf 25
@@ -38,8 +41,14 @@ export default function App() {
   const handleOrtClick = (ort) => {
     setSelectedOrt(ort);
     setShowOrteListe(false);
+    const markerRef = markerRefs.current[ort.id];
+    if (markerRef) {
+      setTimeout(() => {
+        markerRef.openPopup();
+      }, 300); // Kurze Verzögerung vor dem Öffnen des Popups
+    }
   };
-
+  
 
   const createCustomClusterIcon = (cluster) => {
     return new divIcon({
@@ -79,9 +88,11 @@ export default function App() {
               iconUrl: marker.image,
               iconSize: [38, 38]
             });
-
+            
             return (
-              <Marker key={index} position={marker.geocode} icon={customIcon}>
+              <Marker key={index} position={marker.geocode} icon={customIcon} ref={(ref) => {
+                markerRefs.current[marker.id] = ref; // Speichert die Referenz
+              }}>
                 <Popup className="popup">
                   <div className='frame'>
                     <div className='block1'>

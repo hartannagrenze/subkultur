@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "EineWeltHaus",
-        "latitude": 48.1376936,
-        "longitude": 11.5502951,
+        "latitude": 48.1379275,
+        "longitude": 11.552935,
         "address": "Schwanthalerstraße 80, 80336 München-Ludwigsvorstadt-Isarvorstadt",
         "image": "/marker1.png",
         "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
