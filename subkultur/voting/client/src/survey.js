@@ -9,6 +9,7 @@ const Survey = () => {
         question4: '',
         question5: '',
     });
+    let resultsWindow = null;
 
     const handleAnswerChange = (question, answer) => {
         setAnswers(prevAnswers => ({
@@ -46,6 +47,15 @@ const Survey = () => {
         } catch (error) {
             console.error('Fehler beim Senden der Antworten', error);
         }
+                // Überprüfen, ob der Ergebnistab bereits geöffnet ist
+                if (resultsWindow === null || resultsWindow.closed) {
+                    // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
+                    resultsWindow = window.open('/results', 'resultsTab');
+                } else {
+                    // Den bereits geöffneten Tab fokussieren und aktualisieren
+                    resultsWindow.focus();
+                    resultsWindow.location.reload();
+                }
     };
 
     const questions = [
@@ -62,7 +72,7 @@ const Survey = () => {
 
     return (
         <form onSubmit={handleSubmit} className="survey-container">
-            <h2>Umfrage</h2>
+            <h2>Was ist dir wichtig?</h2>
             {questions.map((question, qIndex) => (
                 <div key={qIndex} className="survey-question">
                     <p>{question}</p>

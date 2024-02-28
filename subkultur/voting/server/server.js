@@ -10,7 +10,11 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-
+app.get('/results', (req, res) => {
+    // Lese die aktuellen Ergebnisse und sende sie als Antwort
+    const currentResults = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    res.json(currentResults);
+});
 
 app.post('/update-results', (req, res) => {
     const newResults = req.body.results;
