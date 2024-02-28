@@ -1,0 +1,213 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header img {
+  width: 150px;
+  height: auto; /* Automatische Anpassung der Höhe, um das Seitenverhältnis beizubehalten */
+  z-index: 999;
+}
+
+.popup{
+  border: 7px solid #CF4637;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.liste-adresse{
+  font-style: italic;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.liste-marker{
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  margin-bottom: -2px;
+}
+
+.trennlinie {
+  border: 1px;
+  border-top: 2px solid white; /* oder wählen Sie eine andere Linienart und Farbe */
+  margin: 5px 0; /* optional: fügt etwas Abstand oberhalb und unterhalb der Trennlinie hinzu */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+/* sizing of map container */
+.leaflet-container {
+  height: 100vh;
+}
+
+.cluster-icon{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #CF4637;
+  color: white;
+  transform: translate(-25%, -25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%; /* Breite des Overlays */
+  height: 100%; /* Höhe des Overlays */
+  background-color:  black; /* Hintergrundfarbe des Overlays */
+  z-index: 1000; /* Z-Index, um sicherzustellen, dass das Overlay über allem anderen liegt */
+  overflow-y: auto; /* Erlauben Sie das Scrollen, wenn der Inhalt des Overlays die Höhe überschreitet */
+  padding: 20px; /* Innenabstand des Overlays */
+}
+
+.overlay-content {
+  color: black; /* Farbe des Inhalts im Overlay */
+  z-index: 1001;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: none;
+  
+}
+.app-container {
+  position: relative;
+}
+
+.list-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color: #000000;
+  color: white;
+  padding: 24px 36px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999; /* Stellen Sie sicher, dass der Button über anderen Elementen liegt */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 20px; /* Anpassen der Position des Headers */
+  left: 20px; /* Anpassen der Position des Headers */
+  z-index: 1000; /* Stellen Sie sicher, dass der Header über der Karte liegt */
+  color: black; /* Farbe des Header-Textes */
+  font-size: 24px; /* Größe des Header-Textes */
+  font-weight: bold; /* Fettschrift des Header-Textes */
+  border-radius: 5px; /* Abrunden der Ecken */
+  padding: 10px 20px; /* Innenabstand des Headers */
+  background-color: transparent; /* Transparenter Hintergrund */
+  box-shadow: none; /* Kein Schatten */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.frame {
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 100%;
+}
+
+.name {
+  font-size: 30px; /* Größe der Überschrift */
+  color: #CF4637;
+  margin-bottom: 5px; /* Abstand zwischen dem Namen und der Adresse */
+  font-weight: bold;
+}
+
+.block1 .address {
+  font-size: 1rem; 
+  color: black; 
+  margin-top: -10px;
+}
+
+.block2 {
+  display: flex;
+  font-size: 15px; /* Größe des Textes */
+}
+
+.block2 .left {
+  flex: 1;
+}
+.block2 {
+  display: flex;
+}
+
+.block2 .right {
+  margin-left: 30px;
+}
+
+.image-container {
+  width: auto; /* Breite des Bildcontainers */
+  height: 100px; /* Automatische Höhe basierend auf dem Bildinhalt */
+  min-height: 100px; /* Mindesthöhe des Bildcontainers */
+  margin-right: -100px; /* Abstand zwischen dem Bildcontainer und dem Text */
+  margin-bottom: -50px; /* Abstand zwischen dem Bildcontainer und dem Text */
+}
+
+.image-container img {
+  width: 100%; /* Das Bild füllt den gesamten Container aus */
+  height: 100%; /* Das Bild füllt den gesamten Container aus */
+  object-fit: cover; /* Das Bild wird skaliert, um den gesamten Container zu füllen */
+  
+}
+.infoblock{
+  display: flex;
+  flex-direction: column;
+}
+.block2 .right {
+  margin-left: 10px;
+}
+
+.description {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.address {
+  font-size: smaller;
+}
