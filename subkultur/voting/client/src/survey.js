@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 const Survey = () => {
     const [answers, setAnswers] = useState({
@@ -16,8 +17,18 @@ const Survey = () => {
         }));
     };
 
+    const areAllQuestionsAnswered = () => {
+        return Object.values(answers).every(answer => answer !== '');
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+            // Überprüfen, ob alle Fragen beantwortet wurden
+    if (!areAllQuestionsAnswered()) {
+        alert('Bitte beantworten Sie alle Fragen, bevor Sie die Umfrage absenden.');
+        return; // Beendet die handleSubmit-Funktion, verhindert das Absenden
+    }
         try {
             const response = await fetch('http://localhost:3000/update-results', {
                 method: 'POST',
@@ -50,21 +61,27 @@ const Survey = () => {
     const answerLabels = ['Stimme voll und ganz zu', 'Stimme zu', 'Stimme eher zu', 'Stimme eher nicht zu', 'Stimme nicht zu', 'Stimme gar nicht zu'];
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="survey-container">
             <h2>Umfrage</h2>
             {questions.map((question, qIndex) => (
-                <div key={qIndex}>
+                <div key={qIndex} className="survey-question">
                     <p>{question}</p>
                     {answerOptions.map((option, aIndex) => (
-                        <button key={option} type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, option)} className={answers[`question${qIndex + 1}`] === option ? 'selected' : ''}>
+                        <button
+                            key={option}
+                            type="button"
+                            onClick={() => handleAnswerChange(`question${qIndex + 1}`, option)}
+                            className={`survey-button ${answers[`question${qIndex + 1}`] === option ? 'selected' : ''}`}
+                        >
                             {answerLabels[aIndex]}
                         </button>
                     ))}
                 </div>
             ))}
-            <button type="submit">Absenden</button>
+            <button type="submit" className="submit-button">Absenden</button>
         </form>
     );
-};
+}
+    
 
 export default Survey;

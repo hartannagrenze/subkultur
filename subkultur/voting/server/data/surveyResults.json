@@ -1,6 +1,6 @@
 {
   "question1": {
-    "strongly_agree": 0,
+    "strongly_agree": 1,
     "agree": 1,
     "somewhat_agree": 0,
     "somewhat_disagree": 0,
@@ -9,7 +9,7 @@
   },
   "question2": {
     "strongly_agree": 0,
-    "agree": 1,
+    "agree": 2,
     "somewhat_agree": 0,
     "somewhat_disagree": 0,
     "disagree": 0,
@@ -20,12 +20,12 @@
     "agree": 1,
     "somewhat_agree": 0,
     "somewhat_disagree": 0,
-    "disagree": 0,
+    "disagree": 1,
     "strongly_disagree": 0
   },
   "question4": {
     "strongly_agree": 0,
-    "agree": 1,
+    "agree": 2,
     "somewhat_agree": 0,
     "somewhat_disagree": 0,
     "disagree": 0,
@@ -37,6 +37,6 @@
     "somewhat_agree": 0,
     "somewhat_disagree": 0,
     "disagree": 0,
-    "strongly_disagree": 0
+    "strongly_disagree": 1
   }
 }
