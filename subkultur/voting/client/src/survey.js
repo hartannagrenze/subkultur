@@ -8,9 +8,10 @@ const Survey = () => {
         question3: '',
         question4: '',
         question5: '',
+        question6: '',
     });
     let resultsWindow = null;
-
+    
     const handleAnswerChange = (question, answer) => {
         setAnswers(prevAnswers => ({
             ...prevAnswers,
