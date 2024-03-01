@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const dataPath = path.join(__dirname, 'data', 'surveyResults.json');
+const dataPath = './data/surveyResults.json';
 const app = express();
 const PORT = 3000;
 

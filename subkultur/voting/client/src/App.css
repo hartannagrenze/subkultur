@@ -18,18 +18,20 @@
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .survey-button:hover {
   background-color: black;
+  color: white; 
 }
 
 .survey-button.selected {
-  background-color: #CF4637;
+  background-color: black;
+  color: white;
 }
 
 .submit-button {
@@ -37,8 +39,8 @@
   width: 100%;
   padding: 10px 0;
   margin-top: 20px;
-  background-color: weiß;
-  color: black;
+  background-color: black;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
