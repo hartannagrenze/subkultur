@@ -60,13 +60,34 @@ const Survey = () => {
     };
 
     const questions = [
-        "Die Qualität des Sounds und die gute Technik (Licht, Video) ist mir sehr wichtig.",
-        "Ein stabiles Booking bzw. ein vielfältiges Musikprogramm ist mir sehr wichtig.",
-        "Der Raum muss liebevoll gestaltet sein und viel Platz für Kunst ermöglichen.",
-        "Ein solides Bar- und/oder Gastro-Konzept (vielfältiges und günstiges Angebot) ist mir sehr wichtig",
-        "Dieser Raum muss unbedingt Awareness, Inklusion und Barrierefreiheit im Mittelpunkt haben.",
-        "In diesem Raum muss ich mich unbedingt zuhause fühlen und diesen Raum selber mitgestalten dürfen."
+        {
+            title: "Gute Technik",
+            text: "Die Qualität des Sounds und die gute Technik (Licht, Video) ist mir sehr wichtig."
+        },
+        {
+            title: "Vielfältiges Musikprogramm",
+            text: "Ein stabiles Booking bzw. ein vielfältiges Musikprogramm ist mir sehr wichtig.",
+
+        },
+        {
+            title: "Raumgestaltung",
+            text: "Der Raum muss liebevoll gestaltet sein und viel Platz für Kunst ermöglichen.",
+
+        },
+        {
+            title: "Gutes Gastroangebot",
+            text: "Ein solides Bar- und/oder Gastro-Konzept (vielfältiges und günstiges Angebot) ist mir sehr wichtig.",
+        },
+        {
+            title: "Awereness, Inklusion und Barrierefreiheit",
+            text: "Dieser Raum muss unbedingt Awareness, Inklusion und Barrierefreiheit im Mittelpunkt haben.",
+        },
+        {
+            title: "Mitgestaltungsmöglichkeiten",
+            text: "In diesem Raum muss ich mich unbedingt zuhause fühlen und diesen Raum selber mitgestalten dürfen.",
+        },
     ];
+
 
     const answerOptions = ['strongly_agree', 'agree', 'somewhat_agree', 'somewhat_disagree', 'disagree', 'strongly_disagree'];
     const answerLabels = ['Stimme voll und ganz zu', 'Stimme zu', 'Stimme eher zu', 'Stimme eher nicht zu', 'Stimme nicht zu', 'Stimme gar nicht zu'];
@@ -75,20 +96,21 @@ const Survey = () => {
         <form onSubmit={handleSubmit} className="survey-container">
             <h2>Was ist dir wichtig?</h2>
             {questions.map((question, qIndex) => (
-                <div key={qIndex} className="survey-question">
-                    <p>{question}</p>
-                    {answerOptions.map((option, aIndex) => (
-                        <button
-                            key={option}
-                            type="button"
-                            onClick={() => handleAnswerChange(`question${qIndex + 1}`, option)}
-                            className={`survey-button ${answers[`question${qIndex + 1}`] === option ? 'selected' : ''}`}
-                        >
-                            {answerLabels[aIndex]}
-                        </button>
-                    ))}
-                </div>
+        <div key={qIndex} className="survey-question">
+            <p>{question.text}</p>
+            {answerOptions.map((option, aIndex) => (
+                <button
+                    key={option}
+                    type="button"
+                    onClick={() => handleAnswerChange(`question${qIndex + 1}`, option)}
+                    className={`survey-button ${answers[`question${qIndex + 1}`] === option ? 'selected' : ''}`}
+                >
+                    {answerLabels[aIndex]}
+                </button>
             ))}
+        </div>
+    ))}
+
             <button type="submit" className="submit-button">Absenden</button>
         </form>
     );
