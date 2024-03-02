@@ -43,11 +43,21 @@ const SurveyResults = () => {
 
 
     return (
-        <div>
-            <h2>Survey Results Visualization</h2>
-            <ArtisticDataVisualization averageData={averageData} />
-        </div>
+        <div style={{ position: 'relative' }}> {/* Setzt den Eltern-Container auf relative Positionierung */}
+        <ArtisticDataVisualization averageData={averageData} />
+        <img 
+            src="/favicon.png" 
+            width="130px" 
+            alt="Logo" 
+            style={{
+                position: 'absolute', // Absolute Positionierung des Bildes
+                top: '10px', // Abstand von oben
+                right: '10px', // Abstand von rechts
+                zIndex: 1000, // Stellt sicher, dass das Bild im Vordergrund ist
+              }} 
+        />
+    </div>
     );
-};
 
+};
 export default SurveyResults;
