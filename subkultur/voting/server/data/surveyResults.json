@@ -1,50 +1,50 @@
 {
   "question1": {
-    "strongly_agree": 2,
-    "agree": 147,
+    "strongly_agree": 3,
+    "agree": 0,
     "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 1,
+    "strongly_disagree": 0
+  },
+  "question2": {
+    "strongly_agree": 3,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 0,
+    "strongly_disagree": 0
+  },
+  "question3": {
+    "strongly_agree": 2,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 0,
+    "disagree": 1,
+    "strongly_disagree": 0
+  },
+  "question4": {
+    "strongly_agree": 2,
+    "agree": 0,
+    "somewhat_agree": 1,
     "somewhat_disagree": 0,
     "disagree": 0,
     "strongly_disagree": 1
   },
-  "question2": {
-    "strongly_agree": 0,
-    "agree": 7,
-    "somewhat_agree": 97,
-    "somewhat_disagree": 3,
-    "disagree": 0,
-    "strongly_disagree": 56
-  },
-  "question3": {
-    "strongly_agree": 97,
-    "agree": 55,
-    "somewhat_agree": 5,
-    "somewhat_disagree": 1,
-    "disagree": 2,
-    "strongly_disagree": 3
-  },
-  "question4": {
-    "strongly_agree": 0,
-    "agree": 2,
-    "somewhat_agree": 153,
-    "somewhat_disagree": 1,
-    "disagree": 1,
-    "strongly_disagree": 6
-  },
   "question5": {
-    "strongly_agree": 32,
-    "agree": 19,
-    "somewhat_agree": 27,
-    "somewhat_disagree": 9,
+    "strongly_agree": 2,
+    "agree": 1,
+    "somewhat_agree": 0,
+    "somewhat_disagree": 1,
     "disagree": 0,
-    "strongly_disagree": 76
+    "strongly_disagree": 0
   },
   "question6": {
-    "strongly_agree": 0,
-    "agree": 19,
-    "somewhat_agree": 4,
-    "somewhat_disagree": 9,
+    "strongly_agree": 3,
+    "agree": 0,
+    "somewhat_agree": 1,
+    "somewhat_disagree": 0,
     "disagree": 0,
-    "strongly_disagree": 131
+    "strongly_disagree": 0
   }
 }

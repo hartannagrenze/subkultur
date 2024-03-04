@@ -3,6 +3,14 @@ import ArtisticDataVisualization from './Visualisation'; // Adjust the import pa
 
 const SurveyResults = () => {
     const [averageData, setAverageData] = useState([]);
+    const title = {
+        question1: "Gute Technik",
+        question2: "Gute Technik",
+        question3: "Gute Technik",
+        question4: "Gute Technik",
+        question5: "Gute Technik",
+        question6: "Gute Technik"
+    };
     const answerWeights = {
         strongly_agree: 5,
         agree: 4,
@@ -44,7 +52,7 @@ const SurveyResults = () => {
 
     return (
         <div style={{ position: 'relative' }}> {/* Setzt den Eltern-Container auf relative Positionierung */}
-        <ArtisticDataVisualization averageData={averageData} />
+        <ArtisticDataVisualization averageData={averageData} title = {title} />
         <img 
             src="/favicon.png" 
             width="130px" 
