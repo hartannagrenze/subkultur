@@ -21,7 +21,7 @@ const ArtisticDataVisualization = ({ averageData, title }) => {
 
   const maxValue = Math.max(...averageData.map(data => data.average));
   const totalHeight = screenSize.height; // Verwende die gesamte Bildschirmhöhe
-  const aspectRatio = 4 / 3; // Beispiel: 4:3 Seitenverhältnis
+  const aspectRatio = 4 / 4; // Beispiel: 4:3 Seitenverhältnis
 
   function calculateColor(average, maxValue) {
     const ratio = average / maxValue;

@@ -2,26 +2,34 @@
 .survey-container {
   margin: 20px auto;
   padding: 20px;
-  max-width: 600px;
+  max-width: 90%;
   background-color: #E1C14A;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: 100%;
+  width: auto;
 }
-
+@media (max-width: 600px) {
+  .survey-button {
+    padding: 10px 2px; /* Reduziert die Polsterung auf kleineren Bildschirmen */
+    font-size: 12px; /* Kleinere Schriftgröße */
+    
+  }
+}
 .survey-question {
   margin-bottom: 20px;
+
 }
 
 .survey-button {
   margin: 5px;
-  padding: 10px 15px;
+  padding: 15px 8px;
   border: none;
   border-radius: 4px;
   background-color: white;
   color: black;
   cursor: pointer;
   transition: background-color 0.3s;
+  
 }
 
 .survey-button:hover {
