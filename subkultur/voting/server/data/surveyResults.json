@@ -3,7 +3,7 @@
     "strongly_agree": 3,
     "agree": 2,
     "somewhat_agree": 0,
-    "somewhat_disagree": 0,
+    "somewhat_disagree": 2,
     "disagree": 1,
     "strongly_disagree": 2
   },
@@ -11,40 +11,40 @@
     "strongly_agree": 4,
     "agree": 1,
     "somewhat_agree": 2,
-    "somewhat_disagree": 0,
+    "somewhat_disagree": 2,
     "disagree": 0,
     "strongly_disagree": 1
   },
   "question3": {
     "strongly_agree": 2,
     "agree": 3,
-    "somewhat_agree": 0,
+    "somewhat_agree": 1,
     "somewhat_disagree": 0,
     "disagree": 1,
-    "strongly_disagree": 2
+    "strongly_disagree": 3
   },
   "question4": {
     "strongly_agree": 2,
     "agree": 0,
-    "somewhat_agree": 1,
+    "somewhat_agree": 2,
     "somewhat_disagree": 2,
     "disagree": 0,
-    "strongly_disagree": 3
+    "strongly_disagree": 4
   },
   "question5": {
     "strongly_agree": 2,
     "agree": 1,
-    "somewhat_agree": 2,
+    "somewhat_agree": 3,
     "somewhat_disagree": 1,
     "disagree": 0,
-    "strongly_disagree": 2
+    "strongly_disagree": 3
   },
   "question6": {
     "strongly_agree": 3,
     "agree": 0,
-    "somewhat_agree": 2,
+    "somewhat_agree": 3,
     "somewhat_disagree": 0,
     "disagree": 0,
-    "strongly_disagree": 3
+    "strongly_disagree": 4
   }
 }

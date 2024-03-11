@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const ArtisticDataVisualization = ({ averageData, title }) => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
@@ -21,7 +20,7 @@ const ArtisticDataVisualization = ({ averageData, title }) => {
 
   const maxValue = Math.max(...averageData.map(data => data.average));
   const totalHeight = screenSize.height; // Verwende die gesamte Bildschirmhöhe
-  const aspectRatio = 4 / 4; // Beispiel: 4:3 Seitenverhältnis
+  const aspectRatio = 4 / 4; 
 
   function calculateColor(average, maxValue) {
     const ratio = average / maxValue;
@@ -46,7 +45,7 @@ const ArtisticDataVisualization = ({ averageData, title }) => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', overflowX: 'auto' }}>
     {averageData.map(({average }, index) => {
         const heightRatio = average / maxValue;
         const rectHeight = totalHeight * (heightRatio / 2.4); // Höhe des Rechtecks basierend auf dem Verhältnis
@@ -82,3 +81,4 @@ const ArtisticDataVisualization = ({ averageData, title }) => {
 };
 
 export default ArtisticDataVisualization;
+

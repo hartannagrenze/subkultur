@@ -72,7 +72,7 @@ export default function App() {
       <div className="list-button">
         <div onClick={() => setShowOrteListe(true)}> LISTE </div>
       </div>
-      <MapContainer center={[48.1372, 11.5755]} zoom={25} ref={mapRef}>
+      <MapContainer center={[48.1372, 11.5755]} zoom={13} minZoom={10}  ref={mapRef}>
         <TileLayer
           attribution="Stamen Toner"
           url='https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg'
