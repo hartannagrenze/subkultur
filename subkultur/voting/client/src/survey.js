@@ -3,34 +3,42 @@ import './App.css';
 
 const Survey = () => {
     const [answers, setAnswers] = useState({
-        question1: '',
-        question2: '',
-        question3: '',
-        question4: '',
-        question5: '',
-        question6: '',
+        question1: 0,
+        question2: 0,
+        question3: 0,
+        question4: 0,
+        question5: 0,
+        question6: 0,
     });
+    const [totalPoints, setTotalPoints] = useState(30);
+
     let resultsWindow = null;
-    
-    const handleAnswerChange = (question, answer) => {
-        setAnswers(prevAnswers => ({
-            ...prevAnswers,
-            [question]: answer,
-        }));
+    const handleAnswerChange = (question, delta) => {
+        setAnswers(prevAnswers => {
+            const newAnswer = Math.max(prevAnswers[question] + delta, 0);
+            const newTotalPoints = Object.values(prevAnswers).reduce((sum, val, index) => {
+                return sum + (index === question ? newAnswer : val);
+            }, 0);
+            
+            if (newTotalPoints < 30) {
+                setTotalPoints(29 - newTotalPoints);
+                return {
+                    ...prevAnswers,
+                    [question]: newAnswer,
+                };
+            } else {
+                alert('Maximal 30 Punkte insgesamt erlauben.');
+                return prevAnswers;
+            }
+        });
     };
-
-    const areAllQuestionsAnswered = () => {
-        return Object.values(answers).every(answer => answer !== '');
-    };
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-            // Überprüfen, ob alle Fragen beantwortet wurden
-    if (!areAllQuestionsAnswered()) {
-        alert('Bitte beantworten Sie alle Fragen, bevor Sie die Umfrage absenden.');
-        return; // Beendet die handleSubmit-Funktion, verhindert das Absenden
-    }
+        if (totalPoints !== 0) {
+            alert('Bitte verteilen Sie alle 30 Punkte, bevor Sie die Umfrage absenden.');
+            return;
+        }
         try {
             const response = await fetch('http://localhost:3000/update-results', {
                 method: 'POST',
@@ -39,7 +47,7 @@ const Survey = () => {
                 },
                 body: JSON.stringify({ results: answers }),
             });
-
+    
             if (response.ok) {
                 const jsonResponse = await response.json();
                 console.log(jsonResponse.message);
@@ -48,16 +56,17 @@ const Survey = () => {
         } catch (error) {
             console.error('Fehler beim Senden der Antworten', error);
         }
-                // Überprüfen, ob der Ergebnistab bereits geöffnet ist
-                if (resultsWindow === null || resultsWindow.closed) {
-                    // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
-                    resultsWindow = window.open('/results', 'resultsTab');
-                } else {
-                    // Den bereits geöffneten Tab fokussieren und aktualisieren
-                    resultsWindow.focus();
-                    resultsWindow.location.reload();
-                }
+        // Überprüfen, ob der Ergebnistab bereits geöffnet ist
+        if (resultsWindow === null || resultsWindow.closed) {
+            // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
+            resultsWindow = window.open('/results', 'resultsTab');
+        } else {
+            // Den bereits geöffneten Tab fokussieren und aktualisieren
+            resultsWindow.focus();
+            resultsWindow.location.reload();
+        }
     };
+    
 
     const questions = [
         {
@@ -88,33 +97,22 @@ const Survey = () => {
         },
     ];
 
-
-    const answerOptions = ['strongly_agree', 'agree', 'somewhat_agree', 'somewhat_disagree', 'disagree', 'strongly_disagree'];
-    const answerLabels = ['Stimme voll und ganz zu', 'Stimme zu', 'Stimme eher zu', 'Stimme eher nicht zu', 'Stimme nicht zu', 'Stimme gar nicht zu'];
-
     return (
         <form onSubmit={handleSubmit} className="survey-container">
             <h2>Was ist dir wichtig?</h2>
             {questions.map((question, qIndex) => (
-        <div key={qIndex} className="survey-question">
-            <p>{question.text}</p>
-            {answerOptions.map((option, aIndex) => (
-                <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleAnswerChange(`question${qIndex + 1}`, option)}
-                    className={`survey-button ${answers[`question${qIndex + 1}`] === option ? 'selected' : ''}`}
-                >
-                    {answerLabels[aIndex]}
-                </button>
+                <div key={qIndex} className="survey-question">
+                    <p>{question.text}</p>
+                    <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-</button>
+                    <input type="number" readOnly value={answers[`question${qIndex + 1}`]} />
+                    <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+</button>
+                </div>
             ))}
-        </div>
-    ))}
-
+            <p>Verbleibende Punkte: {totalPoints}</p>
             <button type="submit" className="submit-button">Absenden</button>
         </form>
     );
 }
-    
 
+    
 export default Survey;
