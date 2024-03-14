@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ArtisticDataVisualization = ({ averageData, title }) => {
+const DataVisualization = ({ averageData, titles }) => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -46,39 +46,38 @@ const ArtisticDataVisualization = ({ averageData, title }) => {
 
   return (
     <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', overflowX: 'auto' }}>
-    {averageData.map(({average }, index) => {
-        const heightRatio = average / maxValue;
-        const rectHeight = totalHeight * (heightRatio / 2.4); // Höhe des Rechtecks basierend auf dem Verhältnis
-        const rectWidth = rectHeight * aspectRatio; // Breite des Rechtecks basierend auf dem Seitenverhältnis
+      {averageData.map((data, index) => {
+          const { average } = data; // Extrahiere den Durchschnittswert
+          const heightRatio = average / maxValue;
+          const rectHeight = totalHeight * (heightRatio / 2.4); // Höhe des Rechtecks basierend auf dem Verhältnis
+          const rectWidth = rectHeight * aspectRatio; // Breite des Rechtecks basierend auf dem Seitenverhältnis
+          const title = titles[index]; // Zugriff auf den Titel über den Index
+          const fontSize = Math.min(rectWidth * rectHeight / 10000, 30);
+          const color = calculateColor(average, maxValue);
 
-        // Berechnung der Schriftgröße basierend auf der Fläche des Rechtecks
-        const fontSize = Math.min(rectWidth * rectHeight / 10000, 30);
-        const color = calculateColor(average, maxValue);
-
-        return (
-          <div key={index} style={{
-            margin: '5px',
-            width: `${rectWidth}px`,
-            height: `${rectHeight}px`,
-            backgroundColor: color,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            padding: '10px',
-            fontSize: `${fontSize}px`, // Achten Sie darauf, dass fontSize nicht zu groß ist
-            color: 'white', // Stellen Sie sicher, dass die Textfarbe sich vom Hintergrund abhebt
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-          }}>
-          </div>
-        );
-      })}
+          return (
+            <div key={index} style={{
+              margin: '0px',
+              width: `${rectWidth}px`,
+              height: `${rectHeight}px`,
+              backgroundColor: color,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              fontSize: `${fontSize}px`,
+              color: 'white',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}>
+              {title} {/* Zeige den Titel basierend auf dem Index */}
+            </div>
+          );
+        })}
     </div>
   );
 };
 
-export default ArtisticDataVisualization;
-
+export default DataVisualization;

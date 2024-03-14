@@ -86,7 +86,7 @@ export default function App() {
           {markers.map((marker, index) => {
             const customIcon = new Icon({
               iconUrl: marker.image,
-              iconSize: [38, 38]
+              iconSize: ['auto', 50],
             });
             
             return (
@@ -109,7 +109,7 @@ export default function App() {
                       </div>
                       <div className='right'>
                         <div className="image-container" style={{ height: 'auto', minHeight: '100px' }}>
-                          <img src={marker.image} alt={marker.popup} style={{ width: '100%', height: '100%' }} />
+                          <img src={marker.image} alt={marker.popup} style={{ width: 'auto', height: '300px' }} />
                         </div>
                       </div>
                     </div>
