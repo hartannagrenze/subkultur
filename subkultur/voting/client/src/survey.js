@@ -15,23 +15,27 @@ const Survey = () => {
     let resultsWindow = null;
     const handleAnswerChange = (question, delta) => {
         setAnswers(prevAnswers => {
-            const newAnswer = Math.max(prevAnswers[question] + delta, 0);
-            const newTotalPoints = Object.values(prevAnswers).reduce((sum, val, index) => {
-                return sum + (index === question ? newAnswer : val);
-            }, 0);
+            const newAnswerValue = Math.max(prevAnswers[question] + delta, 0);
             
-            if (newTotalPoints < 30) {
-                setTotalPoints(29 - newTotalPoints);
-                return {
-                    ...prevAnswers,
-                    [question]: newAnswer,
-                };
-            } else {
-                alert('Maximal 30 Punkte insgesamt erlauben.');
+            // Berechne die neue Gesamtpunktzahl basierend auf dem potenziellen neuen Wert
+            let tempAnswers = {...prevAnswers, [question]: newAnswerValue};
+            const newTotalPoints = Object.values(tempAnswers).reduce((total, currentValue) => total + currentValue, 0);
+    
+            // Prüfe, ob die Gesamtpunktzahl korrekt ist (nicht mehr als 30, und berücksichtige die Reduzierung richtig)
+            if (delta > 0 && newTotalPoints > 30) {
+                // Verhindere das Hinzufügen von Punkten, wenn das Limit erreicht ist
+                alert('Maximal 30 Punkte insgesamt erlaubt.');
                 return prevAnswers;
+            } else if (delta < 0 && newTotalPoints <= 30) {
+                // Aktualisiere die Anzahl der verbleibenden Punkte korrekt, wenn Punkte entfernt werden
+                setTotalPoints(30 - newTotalPoints);
+                return tempAnswers;
             }
+    
+            return prevAnswers;
         });
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -101,8 +105,9 @@ const Survey = () => {
         <form onSubmit={handleSubmit} className="survey-container">
             <h2>Was ist dir wichtig?</h2>
             {questions.map((question, qIndex) => (
-                <div key={qIndex} className="survey-question">
-                    <p>{question.text}</p>
+                <div className="question-details">
+                        <h3>{question.title}</h3>
+                        <p>{question.text}</p>
                     <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-</button>
                     <input type="number" readOnly value={answers[`question${qIndex + 1}`]} />
                     <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+</button>
