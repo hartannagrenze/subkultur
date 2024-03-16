@@ -1,13 +1,81 @@
 /* Survey.css */
 .survey-container {
-  margin: 20px auto;
-  padding: 20px;
+  margin: 10px auto;
+  padding: 10px;
   max-width: 90%;
-  background-color: #E1C14A;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   width: auto;
 }
+.total-points {
+  font-family: Arial;
+  font-style: italic;
+  font-size: 130px;
+  font-weight: 800;
+  color: #E1372C; 
+}
+
+.question-title{
+  color: #000;
+  font-family: Arial;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.question-details {
+  display: flex;
+  align-items: center; /* Zentriert die Elemente vertikal */
+  gap: 10px; /* Fügt Abstand zwischen den Elementen hinzu */
+  margin-bottom: 20px;
+}
+.question-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px; /* Aktualisierte Größe für den Kreis */
+  height: 60px; /* Aktualisierte Größe für den Kreis */
+  border-radius: 50%; /* Macht den Button kreisförmig */
+  background-color: #000; /* Schwarzer Hintergrund */
+  color: #FFF; /* Weiße Schrift */
+  font-family: 'Inter', sans-serif;
+  font-size: 30px; /* Angepasste Größe, abhängig von der tatsächlichen Button-Größe */
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: normal; /* Kann je nach Bedarf angepasst werden */
+}
+.question-info{
+  margin-left: 30px;
+}
+.question-input {
+  width: 60px; /* Breite des Input-Elements */
+  height: 60px; /* Höhe des Input-Elements */
+  color: #000; /* Textfarbe */
+  font-family: 'Inter', sans-serif; /* Schriftfamilie (stellen Sie sicher, dass 'Inter' geladen ist) */
+  font-size: 40px; /* Schriftgröße */
+  font-weight: 800; /* Schriftgewicht */
+  text-align: center; /* Zentriert den Text im Input */
+  border-radius: 50%; /* Macht das Input-Element kreisförmig */
+  display: flex; /* Ermöglicht die Verwendung von Flexbox-Styles */
+  justify-content: center; /* Zentriert den Inhalt vertikal (funktioniert nicht immer wie erwartet mit Input-Elementen) */
+  align-items: center; /* Zentriert den Inhalt horizontal */
+  padding: 0; /* Entfernt den Standard-Innenabstand */
+  background-color: transparent; /* Hintergrundfarbe */
+  border: 3px solid #000; /* Fügt einen schwarzen Rand hinzu */
+}
+
+/* Entfernt den Spinner für Input-Typ 'number' in Webkit-Browsern */
+.question-input::-webkit-inner-spin-button, 
+.question-input::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
 @media (max-width: 600px) {
   .survey-button {
     padding: 10px 2px; /* Reduziert die Polsterung auf kleineren Bildschirmen */
@@ -19,7 +87,27 @@
   margin-bottom: 20px;
 
 }
+.umfrage{
+  color: #E1372C;
+ font-family: Arial;
+ font-size: 130px;
+ font-style: italic;
+ font-weight: 10;
+ line-height: normal;
+ text-align: right;
+ 
+}
 
+.untertext{
+  color: #000;
+font-family: Arial;
+font-size: 30px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+margin-bottom:20px;
+margin-top:-60px;
+}
 .survey-button {
   margin: 5px;
   padding: 15px 8px;

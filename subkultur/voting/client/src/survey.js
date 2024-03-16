@@ -17,24 +17,26 @@ const Survey = () => {
         setAnswers(prevAnswers => {
             const newAnswerValue = Math.max(prevAnswers[question] + delta, 0);
             
-            // Berechne die neue Gesamtpunktzahl basierend auf dem potenziellen neuen Wert
-            let tempAnswers = {...prevAnswers, [question]: newAnswerValue};
+            // Berechne die vorläufige neue Gesamtpunktzahl, um zu prüfen, ob die Änderung zulässig ist
+            let tempAnswers = { ...prevAnswers, [question]: newAnswerValue };
             const newTotalPoints = Object.values(tempAnswers).reduce((total, currentValue) => total + currentValue, 0);
     
-            // Prüfe, ob die Gesamtpunktzahl korrekt ist (nicht mehr als 30, und berücksichtige die Reduzierung richtig)
-            if (delta > 0 && newTotalPoints > 30) {
-                // Verhindere das Hinzufügen von Punkten, wenn das Limit erreicht ist
-                alert('Maximal 30 Punkte insgesamt erlaubt.');
-                return prevAnswers;
-            } else if (delta < 0 && newTotalPoints <= 30) {
-                // Aktualisiere die Anzahl der verbleibenden Punkte korrekt, wenn Punkte entfernt werden
-                setTotalPoints(30 - newTotalPoints);
-                return tempAnswers;
+            // Prüfe, ob die neue Gesamtpunktzahl das Limit von 30 Punkten überschreitet
+            if (newTotalPoints > 30) {
+                // Wenn das Hinzufügen von Punkten das Limit überschreiten würde, zeige eine Warnung und mache keine Änderung
+                if (delta > 0) {
+                    alert('Maximal 30 Punkte insgesamt erlaubt.');
+                    return prevAnswers;
+                }
+                // Wenn Punkte entfernt werden, sollte diese Situation theoretisch nicht eintreten
             }
     
-            return prevAnswers;
+            // Wenn die neue Gesamtpunktzahl innerhalb des Limits liegt, aktualisiere den Zustand und die verbleibenden Punkte
+            setTotalPoints(30 - newTotalPoints);
+            return tempAnswers;
         });
     };
+    
     
 
     const handleSubmit = async (e) => {
@@ -103,17 +105,21 @@ const Survey = () => {
 
     return (
         <form onSubmit={handleSubmit} className="survey-container">
-            <h2>Was ist dir wichtig?</h2>
+        <div className='umfrage'>Umfrage</div>
+        <div className='untertext'>
+        Verteile <span className="total-points">{totalPoints}</span> Punkte auf die verschiedenen Kategorien
+        </div>
             {questions.map((question, qIndex) => (
                 <div className="question-details">
-                        <h3>{question.title}</h3>
-                        <p>{question.text}</p>
-                    <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-</button>
-                    <input type="number" readOnly value={answers[`question${qIndex + 1}`]} />
-                    <button type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+</button>
+                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-</button>
+                    <input className="question-input" type="number" readOnly value={answers[`question${qIndex + 1}`]} />
+                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+</button>
+                    <div className='question-info' >
+                        <div className="question-title">{question.title}</div>
+                        <div>{question.text}</div>
+                    </div>
                 </div>
             ))}
-            <p>Verbleibende Punkte: {totalPoints}</p>
             <button type="submit" className="submit-button">Absenden</button>
         </form>
     );
