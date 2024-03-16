@@ -19,28 +19,24 @@ app.get('/results', (req, res) => {
 });
 
 app.post('/update-results', (req, res) => {
-    const newResults = req.body.results;
-    // Read the current results
+    const newResults = req.body.results; // Dies sollte ein Objekt mit Punkten sein, nicht Prozentsätzen
     let currentResults = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
-    // Update the total and points per question
-    currentResults.total += 30; // Assuming each survey always adds 30 points to the total
+    // Sicherstellen, dass totalVotes korrekt initialisiert und aktualisiert wird
+    currentResults.totalVotes = (currentResults.totalVotes || 0) + Object.values(newResults).reduce((sum, value) => sum + value, 0);
+
+    // Punkte für jede Frage direkt hinzufügen, ohne Umrechnung
     for (const question in newResults) {
+        if (!currentResults[question]) {
+            currentResults[question] = 0; // Initialisiere mit 0, wenn noch nicht vorhanden
+        }
         currentResults[question] += newResults[question];
     }
 
-    // Calculate the percentage for each question based on the new total
-    Object.keys(currentResults).forEach(key => {
-        if (key !== 'total') {
-            currentResults[key] = (currentResults[key] / currentResults.total) * 100;
-        }
-    });
-
-    // Write the updated results back to the JSON file
     fs.writeFileSync(dataPath, JSON.stringify(currentResults, null, 2), 'utf8');
-
     res.send({ message: 'Results successfully updated', updatedResults: currentResults });
 });
+
 
 // Start the server
 app.listen(PORT, () => {

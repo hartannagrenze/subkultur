@@ -8,13 +8,14 @@ const SurveyResults = () => {
         const fetchResults = async () => {
             try {
                 const response = await fetch('http://localhost:3000/results');
-                const data = await response.json();
-                delete data.total; // Remove the total so we don't try to display it as a question
-
-                const processedData = Object.keys(data).map(questionKey => {
-                    const percentage = data[questionKey]; // Use the percentage from the server
-                    return { question: questionKey, percentage }; // The server should already provide the percentage
+                let data = await response.json();
+    
+                let processedData = Object.keys(data).filter(key => key !== 'totalVotes').map(questionKey => {
+                    // Berechne die Prozentsätze basierend auf totalVotes
+                    const percentage = ((data[questionKey] / data.totalVotes) * 100).toFixed(2);
+                    return { question: questionKey, percentage };
                 });
+    
                 setResultsData(processedData);
             } catch (error) {
                 console.error('Failed to fetch survey results:', error);
@@ -23,7 +24,7 @@ const SurveyResults = () => {
         
         fetchResults();
     }, []);
-
+    
     return (
         <div style={{ position: 'relative' }}>
             <DataVisualization resultsData={resultsData} />
