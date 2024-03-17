@@ -59,7 +59,7 @@
   font-size: 40px; /* Schriftgröße */
   font-weight: 800; /* Schriftgewicht */
   text-align: center; /* Zentriert den Text im Input */
-  border-radius: 50%; /* Macht das Input-Element kreisförmig */
+  border-radius: 10%; /* Macht das Input-Element kreisförmig */
   display: flex; /* Ermöglicht die Verwendung von Flexbox-Styles */
   justify-content: center; /* Zentriert den Inhalt vertikal (funktioniert nicht immer wie erwartet mit Input-Elementen) */
   align-items: center; /* Zentriert den Inhalt horizontal */
@@ -132,7 +132,7 @@ margin-top:-60px;
 
 .submit-button {
   display: block;
-  width: 300px;
+  width: 340px;
   padding: 10px 0;
   margin-top: 20px;
   background-color: yellow;

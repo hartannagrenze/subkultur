@@ -111,9 +111,11 @@ const Survey = () => {
         </div>
             {questions.map((question, qIndex) => (
                 <div className="question-details">
-                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-</button>
+                                        <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -5)}>-5</button>
+                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-1</button>
                     <input className="question-input" type="number" readOnly value={answers[`question${qIndex + 1}`]} />
-                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+</button>
+                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+1</button>
+                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 5)}>+5</button>
                     <div className='question-info' >
                         <div className="question-title">{question.title}</div>
                         <div>{question.text}</div>
