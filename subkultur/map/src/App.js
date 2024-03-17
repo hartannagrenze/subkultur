@@ -73,15 +73,15 @@ export default function App() {
         <div onClick={() => setShowOrteListe(true)}> LISTE </div>
       </div>
       <MapContainer
-            center={[48.1372, 11.5755]} // Zentrum von München
-            zoom={13}
-            minZoom={10}
-            maxBounds={[
-              [47.9959, 11.3403], // Südwest
-              [48.2485, 11.7811]  // Nordost
-            ]}
-            ref={mapRef}
-          >
+        center={[48.1372, 11.5755]} // Zentrum von München
+        zoom={13}
+        minZoom={10}
+        maxBounds={[
+          [47.9959, 11.3403], // Südwest
+          [48.2485, 11.7811]  // Nordost
+        ]}
+        ref={mapRef}
+      >
 
         <TileLayer
           attribution="Stamen Toner"
