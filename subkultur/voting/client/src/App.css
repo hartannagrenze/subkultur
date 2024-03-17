@@ -106,7 +106,7 @@
 .umfrage{
   color: #E1372C;
  font-family: Arial;
- font-size: 110px;
+ font-size: 90px;
  font-style: italic;
  font-weight: 10;
  line-height: normal;
@@ -129,7 +129,7 @@ font-style: normal;
 font-weight: 800;
 line-height: normal;
 margin-bottom:20px;
-margin-top:-60px;
+margin-top:-30px;
 }
 .survey-button {
   margin: 5px;
