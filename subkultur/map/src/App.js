@@ -57,9 +57,12 @@ export default function App() {
       iconSize: [33, 33],
     });
   };
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <div className="app-container">
+    <div className="app-container" onContextMenu={handleContextMenu}>
       <Header />
       {showOrteListe && (
         <div className="overlay">
