@@ -70,7 +70,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%; /* Breite des Overlays */
+  width: 40%; /* Breite des Overlays */
   height: 100%; /* Höhe des Overlays */
   background-color:  black; /* Hintergrundfarbe des Overlays */
   z-index: 1000; /* Z-Index, um sicherzustellen, dass das Overlay über allem anderen liegt */

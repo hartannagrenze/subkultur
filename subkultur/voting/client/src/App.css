@@ -5,6 +5,7 @@
   max-width: 90%;
   border-radius: 8px;
   width: auto;
+  align-items: flex-start;
 }
 .total-points {
   font-family: Arial;
@@ -24,10 +25,11 @@
 }
 .question-details {
   display: flex;
-  align-items: center; /* Zentriert die Elemente vertikal */
-  gap: 10px; /* Fügt Abstand zwischen den Elementen hinzu */
-  margin-bottom: 20px;
+  align-items: flex-start; /* oder ein anderer Wert, je nach Bedarf */
+  gap: 10px;
+  width: 100%;
 }
+
 .question-button{
   display: flex;
   justify-content: center;
@@ -48,9 +50,20 @@
   text-align: center;
   line-height: normal; /* Kann je nach Bedarf angepasst werden */
 }
-.question-info{
-  margin-left: 30px;
+.question-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+
+.question-title, .question-text {
+  min-height: 48px;
+  margin-left: 20px;
+}
+
+
 .question-input {
   width: 60px; /* Breite des Input-Elements */
   height: 60px; /* Höhe des Input-Elements */
@@ -84,20 +97,30 @@
   }
 }
 .survey-question {
-  margin-bottom: 20px;
+  background-size: cover; /* Stellt sicher, dass das Bild den gesamten Container bedeckt */
+  background-position: center; /* Zentriert das Bild */
+  background-repeat: no-repeat; /* Verhindert das Wiederholen des Bildes */
+  opacity: 0.5; /* Macht das Bild transparent */
 
 }
 .umfrage{
   color: #E1372C;
  font-family: Arial;
- font-size: 130px;
+ font-size: 110px;
  font-style: italic;
  font-weight: 10;
  line-height: normal;
  text-align: right;
  
 }
-
+.question-text{
+  color: #000;
+  font-family: Arial;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
 .untertext{
   color: #000;
 font-family: Arial;

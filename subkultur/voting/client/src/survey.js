@@ -105,7 +105,7 @@ const Survey = () => {
 
     return (
         <form onSubmit={handleSubmit} className="survey-container">
-        <div className='umfrage'>Umfrage</div>
+        <div className='umfrage'>Kreiere deinen Wunschfreiraum</div>
         <div className='untertext'>
         Verteile <span className="total-points">{totalPoints}</span> Punkte auf die verschiedenen Kategorien
         </div>
@@ -118,7 +118,7 @@ const Survey = () => {
                     <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 5)}>+5</button>
                     <div className='question-info' >
                         <div className="question-title">{question.title}</div>
-                        <div>{question.text}</div>
+                        <div className='question-text'>{question.text}</div>
                     </div>
                 </div>
             ))}
