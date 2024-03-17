@@ -34,18 +34,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px; /* Aktualisierte Größe für den Kreis */
-  height: 60px; /* Aktualisierte Größe für den Kreis */
+  width: 70px; /* Aktualisierte Größe für den Kreis */
+  height: 70px; /* Aktualisierte Größe für den Kreis */
   border-radius: 50%; /* Macht den Button kreisförmig */
   background-color: #000; /* Schwarzer Hintergrund */
   color: #FFF; /* Weiße Schrift */
   font-family: 'Arial';
   font-size: 30px; /* Angepasste Größe, abhängig von der tatsächlichen Button-Größe */
-  font-weight: 400;
+  font-weight:600;
   border: none;
   cursor: pointer;
   outline: none;
-  padding: 0;
+  padding: 10px‚;
   box-sizing: border-box;
   text-align: center;
   line-height: normal; /* Kann je nach Bedarf angepasst werden */
@@ -106,11 +106,12 @@
 .umfrage{
   color: #E1372C;
  font-family: Arial;
- font-size: 90px;
+ font-size: 120px;
  font-style: italic;
  font-weight: 10;
  line-height: normal;
  text-align: right;
+ margin-bottom: 30px;
  
 }
 .question-text{
@@ -124,16 +125,16 @@
 .untertext{
   color: #000;
 font-family: Arial;
-font-size: 30px;
+font-size: 47px;
 font-style: normal;
 font-weight: 800;
 line-height: normal;
 margin-bottom:20px;
-margin-top:-30px;
+margin-top:-60px;
 }
 .survey-button {
   margin: 5px;
-  padding: 15px 8px;
+  padding: 30px 20px;
   border: none;
   border-radius: 4px;
   background-color: white;
@@ -157,7 +158,7 @@ margin-top:-30px;
   display: block;
   width: 340px;
   padding: 10px 0;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: yellow;
   color: black;
   border: 3px solid black;
