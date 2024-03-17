@@ -12,7 +12,6 @@ const Survey = () => {
     });
     const [totalPoints, setTotalPoints] = useState(30);
 
-    let resultsWindow = null;
     const handleAnswerChange = (question, delta) => {
         setAnswers(prevAnswers => {
             const newAnswerValue = Math.max(prevAnswers[question] + delta, 0);
@@ -37,14 +36,14 @@ const Survey = () => {
         });
     };
     
-    
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (totalPoints !== 0) {
+        
+        if (totalPoints > 0) {
             alert('Bitte verteilen Sie alle 30 Punkte, bevor Sie die Umfrage absenden.');
             return;
         }
+    
         try {
             const response = await fetch('http://localhost:3000/update-results', {
                 method: 'POST',
@@ -57,19 +56,27 @@ const Survey = () => {
             if (response.ok) {
                 const jsonResponse = await response.json();
                 console.log(jsonResponse.message);
-                // Reset answers or show a success message
+                // Reset answers and total points
+                setAnswers({
+                    question1: 0,
+                    question2: 0,
+                    question3: 0,
+                    question4: 0,
+                    question5: 0,
+                    question6: 0,
+                });
+                setTotalPoints(30);
+                alert("Vielen Dank für Ihre Teilnahme!");
+                
+                // Open the /results page in a new tab
+                window.open('/results', '_blank');
+            } else {
+                console.error("Fehler beim Senden der Ergebnisse: ", response.statusText);
+                alert("Es gab ein Problem beim Senden Ihrer Antworten. Bitte versuchen Sie es später erneut.");
             }
         } catch (error) {
             console.error('Fehler beim Senden der Antworten', error);
-        }
-        // Überprüfen, ob der Ergebnistab bereits geöffnet ist
-        if (resultsWindow === null || resultsWindow.closed) {
-            // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
-            resultsWindow = window.open('/results', 'resultsTab');
-        } else {
-            // Den bereits geöffneten Tab fokussieren und aktualisieren
-            resultsWindow.focus();
-            resultsWindow.location.reload();
+            alert("Es gab ein Problem beim Senden Ihrer Antworten. Bitte versuchen Sie es später erneut.");
         }
     };
     
