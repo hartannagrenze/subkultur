@@ -79,6 +79,7 @@ export default function App() {
         center={[48.1372, 11.5755]} // Zentrum von München
         zoom={13}
         minZoom={10}
+        attributionControl={false} //
         maxBounds={[
           [47.9959, 11.3403], // Südwest
           [48.2485, 11.7811]  // Nordost
