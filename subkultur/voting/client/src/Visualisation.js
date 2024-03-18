@@ -6,16 +6,26 @@ const DataVisualization = ({ resultsData }) => {
     const canvasWidth = 1300;
     const canvasHeight = 900;
     const totalArea = canvasWidth * canvasHeight;
-    
+
+    let subRects = []; // Array zum Speichern der kleineren Rechtecke
+
     // Berechne die Gesamtfläche basierend auf den prozentualen Anteilen
-    let rects = resultsData.map((data, index) => {
+    resultsData.forEach((data, index) => {
       const percentage = data.percentage;
       const area = totalArea * (percentage / 100);
-      return {
-        area: area,
-        color: p.color(['#E7BF25', '#E0372C', '#73D7B3', '#73BF60', '#D072B6', '#2C69E0'][index % 6]),
-        percentage: percentage
-      };
+      const color = p.color(['#E7BF25', '#E0372C', '#73D7B3', '#73BF60', '#D072B6', '#2C69E0'][index % 6]);
+
+      // Bestimme die Anzahl der kleinen Rechtecke pro Farbe
+      const numOfSubRects = Math.ceil(percentage); // oder jede andere Logik
+      const subArea = area / numOfSubRects; // Fläche für jedes kleine Rechteck
+
+      for (let i = 0; i < numOfSubRects; i++) {
+        subRects.push({
+          width: Math.sqrt(subArea),
+          height: Math.sqrt(subArea),
+          color: color
+        });
+      }
     });
 
     p.setup = () => {
@@ -26,23 +36,26 @@ const DataVisualization = ({ resultsData }) => {
     p.draw = () => {
       p.background(240);
       let x = 0, y = 0;
-      let maxHeight = 0;
+      let rowHeight = 0;
 
-      rects.forEach(rect => {
-        const rectWidth = Math.sqrt((rect.area * rect.percentage) / 100);
-        const rectHeight = rect.area / rectWidth;
-
-        if (x + rectWidth > canvasWidth) {
-          x = 0;
-          y += maxHeight;
-          maxHeight = 0;
+      subRects.forEach((subRect, index) => {
+        // Überprüfe, ob wir am Rand des Canvas sind
+        if (x + subRect.width > canvasWidth) {
+          x = 0; // Zurück zum linken Rand
+          y += rowHeight; // Gehe eine Reihe nach unten
+          rowHeight = 0; // Zurücksetzen der Zeilenhöhe
         }
-        p.fill(rect.color);
-        p.rect(x, y, rectWidth, rectHeight);
 
-        x += rectWidth;
-        if (rectHeight > maxHeight) {
-          maxHeight = rectHeight;
+        // Zeichne das kleine Rechteck
+        p.fill(subRect.color);
+        p.rect(x, y, subRect.width, subRect.height);
+
+        // Aktualisiere x für das nächste Rechteck
+        x += subRect.width;
+
+        // Aktualisiere die maximale Zeilenhöhe
+        if (subRect.height > rowHeight) {
+          rowHeight = subRect.height;
         }
       });
     };

@@ -12,6 +12,7 @@ const Survey = () => {
     });
     const [totalPoints, setTotalPoints] = useState(30);
 
+
     const handleAnswerChange = (question, delta) => {
         setAnswers(prevAnswers => {
             const newAnswerValue = Math.max(prevAnswers[question] + delta, 0);
