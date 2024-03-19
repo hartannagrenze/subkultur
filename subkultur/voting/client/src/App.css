@@ -104,13 +104,13 @@
 
 }
 .umfrage{
-  color: #E1372C;
+  color: black ;
  font-family: Arial;
- font-size: 120px;
+ font-size: 100px;
  font-style: italic;
  font-weight: 10;
  line-height: normal;
- text-align: right;
+ text-align: left;
  margin-bottom: 40px;
  
 }

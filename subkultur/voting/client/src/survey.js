@@ -92,29 +92,29 @@ const handleSubmit = async (e) => {
 
     const questions = [
         {
-            title: "Gute Technik",
+            title: "Technik",
             text: "Die Qualität des Sounds und die gute Technik (Licht, Video) ist mir sehr wichtig."
         },
         {
-            title: "Vielfältiges Musikprogramm",
+            title: "Booking",
             text: "Ein stabiles Booking bzw. ein vielfältiges Musikprogramm ist mir sehr wichtig.",
 
         },
         {
-            title: "Raumgestaltung",
+            title: "Kunst",
             text: "Der Raum muss liebevoll gestaltet sein und viel Platz für Kunst ermöglichen.",
 
         },
         {
-            title: "Gutes Gastroangebot",
+            title: "Gastro",
             text: "Ein solides Bar- und/oder Gastro-Konzept (vielfältiges und günstiges Angebot) ist mir sehr wichtig.",
         },
         {
-            title: "Awereness, Inklusion und Barrierefreiheit",
+            title: "Awereness",
             text: "Dieser Raum muss unbedingt Awareness, Inklusion und Barrierefreiheit im Mittelpunkt haben.",
         },
         {
-            title: "Mitgestaltungsmöglichkeiten",
+            title: "Mitgestaltung",
             text: "In diesem Raum muss ich mich unbedingt zuhause fühlen und diesen Raum selber mitgestalten dürfen.",
         },
     ];
