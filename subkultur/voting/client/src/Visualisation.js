@@ -54,13 +54,47 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
     series: [{
       type: 'treemap',
       layoutAlgorithm: 'squarified',
-      data: treemapData
+      data: treemapData,
+      dataLabels: {
+        enabled: true, // Aktiviert die Anzeige von Datenbeschriftungen
+        align: 'left', // Ausrichtung der Beschriftung
+        verticalAlign: 'top', // Vertikale Ausrichtung der Beschriftung
+        style: {
+          textOutline: false, // Entfernt den Umriss der Schrift
+          fontWeight: '200px', // Setzt die Schriftstärke
+          color: 'black', // Schriftfarbe
+          fontSize: '40px', // Schriftgröße
+          fontFamily: 'Arial', // Schriftart
+          fontStyle: 'italic',
+        },
+        format: '{point.name}: {point.value}%', // Formatierung des Texts: Zeigt den Namen und die Prozentzahl
+      }
     }],
+    plotOptions: {
+      series: {
+        animation: {
+          duration: 1000, // Dauer der Animation in Millisekunden
+          easing: 'easeOutSine' // Art der Animation (z.B. 'linear', 'easeInSine', 'easeInOutQuad', usw.)
+        }
+      }
+    },  
     title: {
-      // Füge die Gesamtanzahl der Teilnehmenden zum Titel hinzu
-      text: `Euer Wunschfreiraum - Total Participants: ${totalParticipants.toFixed(0)}`
+      text: 'Euer Wunschfreiraum',
+      align: 'left',
+      style: {
+        color: 'black',
+        fontFamily: 'Arial',
+        fontSize: '100px',
+        fontStyle: 'italic',
+        fontWeight: '200', // 'bold' oder eine spezifische Zahl wie '700' für Schriftgewicht verwenden
+        lineHeight: 'normal',
+        textAlign: 'left',
+        marginBottom: '40px',
+      }
     },
-
+    credits: {
+      enabled: false // Entfernt das "Highcharts.com"-Label
+    },
     tooltip: {
       formatter: function () {
         return `${this.key}: ${this.point.value.toFixed(2)}%`;
@@ -68,14 +102,27 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
     },
     chart: {
       height: chartHeight
+    },
+    subtitle: {
+      text: `Bisher haben ${totalParticipants.toFixed(0)} teilgenommen. Stimme auch am Touchbildschirm mit ab!`,
+      style: {
+        color: '#000',
+        fontFamily: 'Arial',
+        fontSize: '30px',
+        fontStyle: 'normal',
+        fontWeight: '800',
+        textAlign: 'left',
+      }
     }
   };
 
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={options}
-    />
+    <div style={{ textAlign: 'left' }}>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+      />
+    </div>
   );
 };
 
