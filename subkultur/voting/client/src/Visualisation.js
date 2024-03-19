@@ -5,7 +5,7 @@ import addTreemapModule from 'highcharts/modules/treemap';
 
 addTreemapModule(Highcharts);
 
-const DataVisualization = ({ resultsData }) => {
+const DataVisualization = ({ resultsData, totalVotes }) => {
   const [chartHeight, setChartHeight] = useState(window.innerHeight);
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const DataVisualization = ({ resultsData }) => {
     value: parseFloat(data.percentage),
     color: getQuestionColor(data.question), // Farbe direkt zuweisen
   }));
+  const totalParticipants = totalVotes / 30;
 
   const options = {
     series: [{
@@ -56,8 +57,10 @@ const DataVisualization = ({ resultsData }) => {
       data: treemapData
     }],
     title: {
-      text: 'Euer Wunschfreiraum'
+      // Füge die Gesamtanzahl der Teilnehmenden zum Titel hinzu
+      text: `Euer Wunschfreiraum - Total Participants: ${totalParticipants.toFixed(0)}`
     },
+
     tooltip: {
       formatter: function () {
         return `${this.key}: ${this.point.value.toFixed(2)}%`;
