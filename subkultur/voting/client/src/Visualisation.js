@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import addTreemapModule from 'highcharts/modules/treemap';
-import './App.css'; // Stelle sicher, dass du die CSS-Datei hast
 
-// Highcharts Treemap-Modul anwenden
 addTreemapModule(Highcharts);
 
 const DataVisualization = ({ resultsData }) => {
@@ -16,16 +14,45 @@ const DataVisualization = ({ resultsData }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const treemapData = resultsData.map((data, index) => ({
-    name: data.question, // Verwende die Titel direkt oder wandle die ID in einen lesbaren Titel um
+  // Funktion, die Frage-IDs Titeln zuordnet
+  const getQuestionTitle = (questionId) => {
+    const titles = {
+      question1: "Technik",
+      question2: "Booking",
+      question3: "Kunst",
+      question4: "Gastro",
+      question5: "Awareness",
+      question6: "Mitgestaltung",
+    };
+    return titles[questionId] || questionId;
+  };
+
+  // Funktion, die Frage-IDs Farben zuordnet
+  const getQuestionColor = (questionId) => {
+    const colors = {
+      question1: "#FF6347",
+      question2: "#FFD700",
+      question3: "#FF8C00",
+      question4: "#1E90FF",
+      question5: "#32CD32",
+      question6: "#8A2BE2",
+    };
+    return colors[questionId] || '#FFFFFF'; // Standardfarbe als Fallback
+  };
+
+  // Adapting the given data to the format expected by Highcharts
+  // Hier wird getQuestionTitle verwendet, um die Titel zuzuweisen
+  // Und getQuestionColor für die Farben
+  const treemapData = resultsData.map(data => ({
+    name: getQuestionTitle(data.question),
     value: parseFloat(data.percentage),
-    colorValue: index // Kann durch eine logische Zuordnung zu Farben ersetzt werden
+    color: getQuestionColor(data.question), // Farbe direkt zuweisen
   }));
 
   const options = {
     series: [{
       type: 'treemap',
-      layoutAlgorithm: 'squarified', // Du kannst "stripes", "sliceAndDice", "squarified" oder "strip" versuchen
+      layoutAlgorithm: 'squarified',
       data: treemapData
     }],
     title: {
