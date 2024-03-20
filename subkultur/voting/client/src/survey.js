@@ -71,7 +71,7 @@ const handleSubmit = async (e) => {
             
             if (resultsWindow === null || resultsWindow.closed) {
                 // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
-                resultsWindow = window.open('/results', 'resultsTab');
+                resultsWindow = window.open('/results', 'resultsTab', "height=800,width=1600");
             } else {
                 // Den bereits geöffneten Tab fokussieren und aktualisieren
                 resultsWindow.focus();
