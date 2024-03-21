@@ -30,12 +30,12 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
   // Funktion, die Frage-IDs Farben zuordnet
   const getQuestionColor = (questionId) => {
     const colors = {
-      question1: "#FF6347",
-      question2: "#FFD700",
-      question3: "#FF8C00",
-      question4: "#1E90FF",
-      question5: "#32CD32",
-      question6: "#8A2BE2",
+      question1: "#E4342F",
+      question2: "#E7BF25",
+      question3: "#F48C05",
+      question4: "#168692",
+      question5: "#36B160",
+      question6: "#342D56",
     };
     return colors[questionId] || '#FFFFFF'; // Standardfarbe als Fallback
   };
