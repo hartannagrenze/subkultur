@@ -64,9 +64,11 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
           fontSize: '30px', // Setzt eine konstante Schriftgröße
           fontFamily: 'Arial',
           color: 'black', // Oder eine andere Farbe, je nach Bedarf
-          textOutline: false
+          textOutline: false,
+          fontStyle: 'italic',
+          fontWeight: 50,
         },
-        format: '{point.value}%<br>{point.name}',
+        format: '{point.value:.0f}%<br>{point.name}',
       },
     }],
     plotOptions: {
@@ -96,7 +98,8 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
     },
     tooltip: {
       formatter: function () {
-        return `${this.key}: ${this.point.value.toFixed(2)}%`;
+        // Auch hier `.toFixed(0)` für 0 Nachkommastellen
+        return `${this.key}: ${this.point.value.toFixed(0)}%`;
       }
     },
     chart: {
