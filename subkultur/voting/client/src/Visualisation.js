@@ -56,19 +56,18 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
       layoutAlgorithm: 'squarified',
       data: treemapData,
       dataLabels: {
-        enabled: true, // Aktiviert die Anzeige von Datenbeschriftungen
-        align: 'left', // Ausrichtung der Beschriftung
-        verticalAlign: 'top', // Vertikale Ausrichtung der Beschriftung
+        enabled: true,
+        useHTML: true,
+        align: 'left',
+        verticalAlign: 'top',
         style: {
-          textOutline: false, // Entfernt den Umriss der Schrift
-          fontWeight: '200px', // Setzt die Schriftstärke
-          color: 'black', // Schriftfarbe
-          fontSize: '40px', // Schriftgröße
-          fontFamily: 'Arial', // Schriftart
-          fontStyle: 'italic',
+          fontSize: '30px', // Setzt eine konstante Schriftgröße
+          fontFamily: 'Arial',
+          color: 'black', // Oder eine andere Farbe, je nach Bedarf
+          textOutline: false
         },
-        format: '{point.name}: {point.value}%', // Formatierung des Texts: Zeigt den Namen und die Prozentzahl
-      }
+        format: '{point.value}%<br>{point.name}',
+      },
     }],
     plotOptions: {
       series: {
@@ -104,14 +103,14 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
       height: chartHeight
     },
     subtitle: {
-      text: `Bisher haben ${totalParticipants.toFixed(0)} teilgenommen. Stimme auch am Touchbildschirm mit ab!`,
+      text: `Bisher haben ${totalParticipants.toFixed(0)} Personen teilgenommen. Stimme auch am Touchbildschirm mit ab!`,
+      align: 'left',
       style: {
         color: '#000',
         fontFamily: 'Arial',
         fontSize: '30px',
         fontStyle: 'normal',
         fontWeight: '800',
-        textAlign: 'left',
       }
     }
   };
