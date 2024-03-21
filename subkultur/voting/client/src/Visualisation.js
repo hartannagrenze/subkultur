@@ -13,6 +13,14 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  const questionImages = {
+    question1: 'gastro.png',
+    question2: 'gastro.png',
+    question3: './gastro.png',
+    question4: 'gastro.png.jpg',
+    question5: 'url_to_image_for_question5.jpg',
+    question6: 'url_to_image_for_question6.jpg',
+  };
 
   // Funktion, die Frage-IDs Titeln zuordnet
   const getQuestionTitle = (questionId) => {
@@ -47,35 +55,31 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
     name: getQuestionTitle(data.question),
     value: parseFloat(data.percentage),
     color: getQuestionColor(data.question), // Farbe direkt zuweisen
+    imageUrl: questionImages[data.question], 
   }));
   const totalParticipants = totalVotes / 30;
 
   const options = {
     series: [{
       type: 'treemap',
-      layoutAlgorithm: 'squarified',
       data: treemapData,
       dataLabels: {
-        enabled: true,
-        useHTML: true,
+        formatter: function () {
+          return `<span style="font-size: 70px; color: white, font-weight: bold;">${this.point.value.toFixed(0)}%</span><br><span style="font-size: 30px; font-style: italic; font-weight: bold;">${this.point.name}</span>`;
+        },
         align: 'left',
         verticalAlign: 'top',
         style: {
-          fontSize: '30px', // Setzt eine konstante Schriftgröße
-          fontFamily: 'Arial',
           color: 'black', // Oder eine andere Farbe, je nach Bedarf
           textOutline: false,
-          fontStyle: 'italic',
-          fontWeight: 50,
-        },
-        format: '{point.value:.0f}%<br>{point.name}',
+        }
       },
     }],
     plotOptions: {
       series: {
         animation: {
           duration: 1000, // Dauer der Animation in Millisekunden
-          easing: 'easeOutSine' // Art der Animation (z.B. 'linear', 'easeInSine', 'easeInOutQuad', usw.)
+          easing: 'easeOutBounce' // Art der Animation (z.B. 'linear', 'easeInSine', 'easeInOutQuad', usw.)
         }
       }
     },  
@@ -103,8 +107,11 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
       }
     },
     chart: {
-      height: chartHeight
+      height: chartHeight,
     },
+    
+    
+    
     subtitle: {
       text: `Bisher haben ${totalParticipants.toFixed(0)} Personen teilgenommen. Stimme auch am Touchbildschirm mit ab!`,
       align: 'left',
