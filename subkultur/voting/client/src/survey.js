@@ -1,147 +1,131 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import addTreemapModule from 'highcharts/modules/treemap';
 
-const Survey = () => {
-    const [answers, setAnswers] = useState({
-        question1: 0,
-        question2: 0,
-        question3: 0,
-        question4: 0,
-        question5: 0,
-        question6: 0,
-    });
-    const [totalPoints, setTotalPoints] = useState(30);
+addTreemapModule(Highcharts);
 
+const DataVisualization = ({ resultsData, totalVotes }) => {
+  const [chartHeight, setChartHeight] = useState(window.innerHeight);
 
-    const handleAnswerChange = (question, delta) => {
-        setAnswers(prevAnswers => {
-            const newAnswerValue = Math.max(prevAnswers[question] + delta, 0);
-            
-            // Berechne die vorläufige neue Gesamtpunktzahl, um zu prüfen, ob die Änderung zulässig ist
-            let tempAnswers = { ...prevAnswers, [question]: newAnswerValue };
-            const newTotalPoints = Object.values(tempAnswers).reduce((total, currentValue) => total + currentValue, 0);
-    
-            // Prüfe, ob die neue Gesamtpunktzahl das Limit von 30 Punkten überschreitet
-            if (newTotalPoints > 30) {
-                // Wenn das Hinzufügen von Punkten das Limit überschreiten würde, zeige eine Warnung und mache keine Änderung
-                if (delta > 0) {
-                    alert('Maximal 30 Punkte insgesamt erlaubt.');
-                    return prevAnswers;
-                }
-                // Wenn Punkte entfernt werden, sollte diese Situation theoretisch nicht eintreten
-            }
-    
-            // Wenn die neue Gesamtpunktzahl innerhalb des Limits liegt, aktualisiere den Zustand und die verbleibenden Punkte
-            setTotalPoints(30 - newTotalPoints);
-            return tempAnswers;
-        });
+  useEffect(() => {
+    const handleResize = () => setChartHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Funktion, die Frage-IDs Titeln zuordnet
+  const getQuestionTitle = (questionId) => {
+    const titles = {
+      question1: "Technik",
+      question2: "Booking",
+      question3: "Kunst",
+      question4: "Gastro",
+      question5: "Awareness",
+      question6: "Mitgestaltung",
     };
-    let resultsWindow = null;
+    return titles[questionId] || questionId;
+  };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (totalPoints > 0) {
-        alert('Bitte verteilen Sie alle 30 Punkte, bevor Sie die Umfrage absenden.');
-        return;
-    }
+  // Funktion, die Frage-IDs Farben zuordnet
+  const getQuestionColor = (questionId) => {
+    const colors = {
+      question1: "#FF6347",
+      question2: "#FFD700",
+      question3: "#FF8C00",
+      question4: "#1E90FF",
+      question5: "#32CD32",
+      question6: "#8A2BE2",
+    };
+    return colors[questionId] || '#FFFFFF'; // Standardfarbe als Fallback
+  };
 
-    try {
-        const response = await fetch('http://localhost:3000/update-results', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ results: answers }),
-        });
+  // Adapting the given data to the format expected by Highcharts
+  // Hier wird getQuestionTitle verwendet, um die Titel zuzuweisen
+  // Und getQuestionColor für die Farben
+  const treemapData = resultsData.map(data => ({
+    name: getQuestionTitle(data.question),
+    value: parseFloat(data.percentage),
+    color: getQuestionColor(data.question), // Farbe direkt zuweisen
+  }));
+  const totalParticipants = totalVotes / 30;
 
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            console.log(jsonResponse.message);
-            // Reset answers and total points
-            setAnswers({
-                question1: 0,
-                question2: 0,
-                question3: 0,
-                question4: 0,
-                question5: 0,
-                question6: 0,
-            });
-            setTotalPoints(30);
-            
-            if (resultsWindow === null || resultsWindow.closed) {
-                // Ergebnisseite in einem neuen Tab öffnen, wenn kein Tab geöffnet ist oder der geöffnete Tab geschlossen wurde
-                resultsWindow = window.open('/results', 'resultsTab', "height=1080,width=1920");
-            } else {
-                // Den bereits geöffneten Tab fokussieren und aktualisieren
-                resultsWindow.focus();
-                resultsWindow.location.reload();
-            }
-
-        } else {
-            console.error("Fehler beim Senden der Ergebnisse: ", response.statusText);
-            alert("Es gab ein Problem beim Senden Ihrer Antworten. Bitte versuchen Sie es später erneut.");
+  const options = {
+    series: [{
+      type: 'treemap',
+      layoutAlgorithm: 'squarified',
+      data: treemapData,
+      dataLabels: {
+        enabled: true,
+        useHTML: true,
+        align: 'left',
+        verticalAlign: 'top',
+        style: {
+          fontSize: '30px', // Setzt eine konstante Schriftgröße
+          fontFamily: 'Arial',
+          color: 'black', // Oder eine andere Farbe, je nach Bedarf
+          textOutline: false,
+          fontStyle: 'italic',
+          fontWeight: 50,
+        },
+        format: '{point.value:.0f}%<br>{point.name}',
+      },
+    }],
+    plotOptions: {
+      series: {
+        animation: {
+          duration: 1000, // Dauer der Animation in Millisekunden
+          easing: 'easeOutSine' // Art der Animation (z.B. 'linear', 'easeInSine', 'easeInOutQuad', usw.)
         }
-    } catch (error) {
-        console.error('Fehler beim Senden der Antworten', error);
-        alert("Es gab ein Problem beim Senden Ihrer Antworten. Bitte versuchen Sie es später erneut.");
+      }
+    },  
+    title: {
+      text: 'Euer Wunschfreiraum',
+      align: 'left',
+      style: {
+        color: 'black',
+        fontFamily: 'Arial',
+        fontSize: '100px',
+        fontStyle: 'italic',
+        fontWeight: '200', // 'bold' oder eine spezifische Zahl wie '700' für Schriftgewicht verwenden
+        lineHeight: 'normal',
+        textAlign: 'left',
+        marginBottom: '40px',
+      }
+    },
+    credits: {
+      enabled: false // Entfernt das "Highcharts.com"-Label
+    },
+    tooltip: {
+      formatter: function () {
+        // Auch hier `.toFixed(0)` für 0 Nachkommastellen
+        return `${this.key}: ${this.point.value.toFixed(0)}%`;
+      }
+    },
+    chart: {
+      height: chartHeight
+    },
+    subtitle: {
+      text: `Bisher haben ${totalParticipants.toFixed(0)} Personen teilgenommen. Stimme auch am Touchbildschirm mit ab!`,
+      align: 'left',
+      style: {
+        color: '#000',
+        fontFamily: 'Arial',
+        fontSize: '30px',
+        fontStyle: 'normal',
+        fontWeight: '800',
+      }
     }
+  };
+
+  return (
+    <div style={{ textAlign: 'left' }}>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+      />
+    </div>
+  );
 };
 
-    
-
-    const questions = [
-        {
-            title: "Technik",
-            text: "Die Qualität des Sounds und die gute Technik (Licht, Video) ist mir sehr wichtig."
-        },
-        {
-            title: "Booking",
-            text: "Ein stabiles Booking bzw. ein vielfältiges Musikprogramm ist mir sehr wichtig.",
-
-        },
-        {
-            title: "Kunst",
-            text: "Der Raum muss liebevoll gestaltet sein und viel Platz für Kunst ermöglichen.",
-
-        },
-        {
-            title: "Gastro",
-            text: "Ein solides Bar- und/oder Gastro-Konzept (vielfältiges und günstiges Angebot) ist mir sehr wichtig.",
-        },
-        {
-            title: "Awereness",
-            text: "Dieser Raum muss unbedingt Awareness, Inklusion und Barrierefreiheit im Mittelpunkt haben.",
-        },
-        {
-            title: "Mitgestaltung",
-            text: "In diesem Raum muss ich mich unbedingt zuhause fühlen und diesen Raum selber mitgestalten dürfen.",
-        },
-    ];
-
-    return (
-        <form onSubmit={handleSubmit} className="survey-container">
-        <div className='umfrage'>Kreiere deinen Wunschfreiraum</div>
-        <div className='untertext'>
-        Verteile <span className="total-points">{totalPoints}</span> Punkte auf die verschiedenen Kategorien
-        </div>
-            {questions.map((question, qIndex) => (
-                <div className="question-details">
-                                        <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -5)}>-5</button>
-                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, -1)}>-1</button>
-                    <input className="question-input" type="number" readOnly value={answers[`question${qIndex + 1}`]} />
-                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 1)}>+1</button>
-                    <button className="question-button" type="button" onClick={() => handleAnswerChange(`question${qIndex + 1}`, 5)}>+5</button>
-                    <div className='question-info' >
-                        <div className="question-title">{question.title}</div>
-                        <div className='question-text'>{question.text}</div>
-                    </div>
-                </div>
-            ))}
-            <button type="submit" className="submit-button">Absenden</button>
-        </form>
-    );
-}
-
-    
-export default Survey;
+export default DataVisualization;
