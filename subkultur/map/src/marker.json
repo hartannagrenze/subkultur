@@ -19,11 +19,11 @@
       "longitude": 11.574302948954127,
       "address": "Müllerstraße 2-6, 80469 München-Altstadt-Lehel",
       "image": "/marker2.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Programm abhängig",
+      "betreibende": "Sozialgenossenschaft",
+      "kommerziell": "Nur die Gastro",
+      "grösse": "8 000qm",
+      "gestaltung": "In der Genossenschaft möglich, Anteil kostet 500€"
     },
     {
       "id": 3,
@@ -45,11 +45,11 @@
       "longitude": 11.591761906632541,
       "address": "Kellerstraße 8a, 81667 München",
       "image": "/marker4.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Programm-abhängig",
+      "betreibende": "gGmbH",
+      "kommerziell": "Nur die Gastro",
+      "grösse": "90 000qm",
+      "gestaltung": "Nein"
     },
     {
       "id": 5,
@@ -57,12 +57,12 @@
       "latitude": 48.110298606678384,
       "longitude": 11.596196362868953,
       "address": "Giesinger Bahnhofpl. 1, 81539 München",
-      "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "image": "/marker5.png",
+      "zeiten": "Programm abhängig ",
+      "betreibende": "Verein",
+      "kommerziell": "Nur die Gastro",
       "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "gestaltung": "Ja, anfragen"
     },
     {
       "id": 6,
@@ -71,11 +71,11 @@
       "longitude": 11.569854604688906,
       "address": "Claude-Lorrain-Straße 25, 81543 München-Untergiesing-Harlaching",
       "image": "/marker6.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "zeiten": "Programm abhängig",
+      "betreibende": "KJR, weitgehend selbstverwaltet",
+      "kommerziell": "Nein",
       "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "gestaltung": "möglich"
     },
     {
       "id": 7,
@@ -83,12 +83,12 @@
       "latitude": 48.07487507342938,
       "longitude": 11.966917547647636,
       "address": "Doktor-Wintrich-Straße 1, 85560 Ebersberg",
-      "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "image": "/marker7.png",
+      "zeiten": "Sogut wie immer",
+      "betreibende": "Selbstverwaltetes JUZ",
+      "kommerziell": "Nein",
+      "grösse": "150qm",
+      "gestaltung": "Ja im Verein"
     },
     {
       "id": 8,
@@ -96,12 +96,12 @@
       "latitude": 48.0458898,
       "longitude": 11.9687785,
       "address": "Rotter Str. 8, 85567 Grafing bei München",
-      "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "image": "/marker8.png",
+      "zeiten": "Sogut wie immer",
+      "betreibende": "Selbstverwaltetes JUZ",
+      "kommerziell": "Nein",
+      "grösse": "150qm",
+      "gestaltung": "Ja im Verein"
     },
     {
       "id": 9,
@@ -110,11 +110,11 @@
       "longitude": 11.4326237,
       "address": "Brunngartenstraße 7, 85221 Dachau",
       "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "zeiten": "Programm abhängig",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
       "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "gestaltung": "Ja im Verein"
     },
     {
       "id": 10,
@@ -136,11 +136,11 @@
       "longitude": 11.5507433,
       "address": "Dachauer Str. 110D, 80636 München",
       "image": "/marker11.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Programm abgängig",
+      "betreibende": "Verein",
+      "kommerziell": "Teilweise, je nach Veranstaltung",
+      "grösse": "250qm",
+      "gestaltung": "Ja"
     },   
     {
       "id": 12,
@@ -162,11 +162,11 @@
       "longitude": 11.550023648402803,
       "address": "Schwere-Reiter-Str. 2h, 80636 München-Neuhausen-Nymphenburg",
       "image": "/marker13.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "zeiten": "Programm-abhängig",
+      "betreibende": "Verein und GmbH",
+      "kommerziell": "Teilweise",
       "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "gestaltung": "Ja im Verein"
     },   
     {
       "id": 14,
@@ -175,11 +175,11 @@
       "longitude": 11.533908310397152,
       "address": "Hansastraße 39-41, 81373 München-Sendling-Westpark",
       "image": "/marker14.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "zeiten": "Programm-abhängig ",
+      "betreibende": "Verein",
+      "kommerziell": "Teilweise",
       "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "gestaltung": "Im Verein"
     },   
     {
       "id": 15,
@@ -188,11 +188,11 @@
       "longitude": 11.5603815,
       "address": "Thalkirchner Str. 102, 80337 München",
       "image": "/marker15.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Programm abhängig",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
+      "grösse": "ca 100qm",
+      "gestaltung": "Ja"
     },   
     {
       "id": 16,
@@ -201,11 +201,11 @@
       "longitude": 11.593031434131507,
       "address": "Schlierseestraße 21, 81541 München-Obergiesing-Fasangarten",
       "image": "/marker16.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Nicht vorhanden",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
+      "grösse": "ca 20qm",
+      "gestaltung": "Ja"
     },   
     {
       "id": 17,
@@ -214,9 +214,9 @@
       "longitude": 11.5391363,
       "address": "Rupprechtstraße 29, 80636 München-Neuhausen-Nymphenburgu",
       "image": "/marker17.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
+      "zeiten": "bei Veranstaltungen",
+      "betreibende": "Einzelpersonen und KJR",
+      "kommerziell": "Nein",
       "grösse": "Lorem Impsum",
       "gestaltung": "Lorem Ipsum"
     },
@@ -226,7 +226,7 @@
       "latitude": 48.1148417,
       "longitude": 11.6430967,
       "address": "Heinrich-Wieland-Straße 90, 81735 München",
-      "image": "/marker0.png",
+      "image": "/marker18.png",
       "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
       "betreibende": "Lorem Ipsum",
       "kommerziell": "Lorem Ipsum",
@@ -241,23 +241,23 @@
       "address": "Baldeplatz, 81669 München",
       "image": "/marker19.png",
       "zeiten": "immer",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "betreibende": "alle die wollen",
+      "kommerziell": "nein",
+      "grösse": "circa 1000 qm",
+      "gestaltung": "wild"
     },
     {
       "id": 20,
       "name": "Englischer Garten",
       "latitude": 48.17257132264714,
       "longitude": 11.614648766929964,
-      "address": "Lorem Ipsum",
-      "image": "/marker0.png",
+      "address": "Stadt München",
+      "image": "/marker20.png",
       "zeiten": "immer",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "betreibende": "Bayrische Schlösserverwaltung",
+      "kommerziell": "Nein",
+      "grösse": "3,75 qkm",
+      "gestaltung": "Freizeitaktivitäten"
     },
     {
       "id": 21,
@@ -265,12 +265,12 @@
       "latitude": 48.10626899641361,
       "longitude": 11.555030434679736,
       "address": "Lorem Ipsum",
-      "image": "/marker0.png",
+      "image": "/marker21.png",
       "zeiten": "immer",
       "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "kommerziell": "Nein",
+      "grösse": "0,4 qkm",
+      "gestaltung": "Liegen, Baden, Grillen"
     },
     {
       "id": 22,
@@ -278,51 +278,12 @@
       "latitude": 48.1135754,
       "longitude": 11.5770335,
       "address": "Tegernseer Landstraße 104, 81359 München-Obergiesing-Fasangarten",
-      "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
-    },
-    {
-      "id": 23,
-      "name": "Autobahnbrücke1",
-      "latitude": 48.1543291,
-      "longitude": 11.6011674,
-      "address": "Lorem Ipsum",
-      "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
-    },
-    {
-      "id": 24,
-      "name": "Autobahnbrücke2",
-      "latitude": 48.1543291,
-      "longitude": 11.6011674,
-      "address": "Lorem Ipsum",
-      "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
-    },
-    {
-      "id": 25,
-      "name": "Autobahnbrücke3",
-      "latitude": 48.1543291,
-      "longitude": 11.6011674,
-      "address": "Lorem Ipsum",
-      "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "image": "/marker22.png",
+      "zeiten": "Immer",
+      "betreibende": "Verein",
+      "kommerziell": "Nur die Bar",
+      "grösse": "2000 qm",
+      "gestaltung": "Ja, Im Verein anfragen"
     },
     {
       "id": 26,
@@ -330,19 +291,19 @@
       "latitude": 48.1356503,
       "longitude": 11.5606497,
       "address": "Schillerstraße 38, 80336 München-Ludwigsvorstadt-Isarvorstadt",
-      "image": "/marker0.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "image": "/marker26.png",
+      "zeiten": "Programmabhängig",
+      "betreibende": "Verein",
+      "kommerziell": "nein ",
+      "grösse": "6 000qm",
+      "gestaltung": "Noch nicht, aber im Kösk"
     },
     {
       "id": 27,
       "name": "Siemenswerke",
       "latitude": 48.0920368,
       "longitude": 11.5256791,
-      "address": "Lorem Ipsum",
+      "address": "Siemensallee",
       "image": "/marker0.png",
       "zeiten": "Lorem Ipsum",
       "betreibende": "Lorem Ipsum",
@@ -357,11 +318,11 @@
       "longitude": 11.617568023393726,
       "address": "Neumarkter Str. 81673 München-Berg am Laim",
       "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Immer",
+      "betreibende": "Bima",
+      "kommerziell": "hoffentlich nie",
+      "grösse": "2000 qm",
+      "gestaltung": "nein"
     },
     {
       "id": 29,
@@ -370,11 +331,11 @@
       "longitude": 11.554704699566333,
       "address": "Hans-Preißinger-Straße 2, 81379 München",
       "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Jeden 1 Sonntag des Monats Plenum",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
+      "grösse": "40 Menschen",
+      "gestaltung": "Sehr erwünscht!"
     }
 
 ]
