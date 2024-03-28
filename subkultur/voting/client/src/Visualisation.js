@@ -70,8 +70,12 @@ const DataVisualization = ({ resultsData, totalVotes }) => {
         });
       });
     };
+    
     p.draw = () => {
       p.background(255);
+      if (totalVotes === 0) {
+        return; // Verlässt die draw-Funktion frühzeitig, wenn keine Votes vorhanden sind
+      }
       let currentX = 0;
       let currentY = 0;
       let maxHeight = 0;

@@ -92,36 +92,36 @@ const handleSubmit = async (e) => {
 
     const questions = [
         {
-            title: "Technik",
+            title: "TECHNIK",
             text: "Die Qualität des Sounds und die gute Technik (Licht, Video) ist mir sehr wichtig."
         },
         {
-            title: "Booking",
+            title: "BOOKING",
             text: "Ein stabiles Booking bzw. ein vielfältiges Musikprogramm ist mir sehr wichtig.",
 
         },
         {
-            title: "Kunst",
+            title: "KUNST",
             text: "Der Raum muss liebevoll gestaltet sein und viel Platz für Kunst ermöglichen.",
 
         },
         {
-            title: "Gastro",
+            title: "GASTRO",
             text: "Ein solides Bar- und/oder Gastro-Konzept (vielfältiges und günstiges Angebot) ist mir sehr wichtig.",
         },
         {
-            title: "Awereness",
+            title: "AWARENESS",
             text: "Dieser Raum muss unbedingt Awareness, Inklusion und Barrierefreiheit im Mittelpunkt haben.",
         },
         {
-            title: "Mitgestaltung",
+            title: "MITGESTALTUNG",
             text: "In diesem Raum muss ich mich unbedingt zuhause fühlen und diesen Raum selber mitgestalten dürfen.",
         },
     ];
 
     return (
         <form onSubmit={handleSubmit} className="survey-container">
-        <div className='umfrage'>Kreiere deinen Wunschfreiraum</div>
+        <div className='umfrage'>Freiräume: Was ist dir wichtig?</div>
         <div className='untertext'>
         Verteile <span className="total-points">{totalPoints}</span> Punkte auf die verschiedenen Kategorien
         </div>
