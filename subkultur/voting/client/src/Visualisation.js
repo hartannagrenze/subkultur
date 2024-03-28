@@ -1,16 +1,17 @@
 import React from 'react';
 import { ReactP5Wrapper } from "react-p5-wrapper";
 
-const DataVisualization = ({ resultsData }) => {
+const DataVisualization = ({ resultsData, totalVotes }) => {
   const sketch = (p) => {
     let canvasWidth = 1950;
     let canvasHeight = 1200;
     let images = [];
     let areas = [];
-
+    let scrollTextX = 30;
+    let peopleVoted = totalVotes/30;
     const elements = [
       {
-        imagePath: '/technik.png',
+        imagePath: '/technik1.png',
         title: 'TECHNIK',
         color: '#E4342F'
       },
@@ -69,12 +70,12 @@ const DataVisualization = ({ resultsData }) => {
         });
       });
     };
-
     p.draw = () => {
       p.background(255);
       let currentX = 0;
       let currentY = 0;
       let maxHeight = 0;
+      p.background(255);
     
       areas.forEach((area, index) => {
         const { element, scrollOffsetX, scrollOffsetY, zoomFactor } = area;
@@ -101,7 +102,30 @@ const DataVisualization = ({ resultsData }) => {
         p.rect(currentX, currentY, rectWidth, rectHeight);
         p.blendMode(p.BLEND);
         drawVerticalText(`${element.title} ${roundedPercentage}%`, currentX + 10, currentY + 20, p);
-    
+        
+        // Zeichnet den durchlaufenden Text am oberen Rand
+          // Texteinstellungen
+          // Hintergrundbalken konstant am unteren Rand zeichnen
+  p.fill('black'); // Dunkler Hintergrund für bessere Lesbarkeit des weißen Textes
+  p.rect(0, canvasHeight - 55, canvasWidth, 100); // Der Balken bedeckt den unteren Teil des Canvas
+  
+  // Texteinstellungen
+  p.fill(255); // Weiße Textfarbe für Kontrast
+  p.textSize(50);
+  p.textFont('Arial');
+  p.textStyle(p.BOLD); // Ändern Sie es zu NORMAL, wenn Sie keinen kursiven Text wünschen
+  let scrollingText = `Das sind eure Prioritäten bei Freiräumen. Bisher haben ${peopleVoted} Leute gevotet. Gebe auch du deine Stimme am Touchbildschirm ab!`.toUpperCase();
+
+  // Text zweimal zeichnen für wiederholenden Effekt
+  let textWidth = p.textWidth(scrollingText) + 20; // Etwas zusätzlichen Platz hinzufügen
+  p.text(scrollingText, scrollTextX, canvasHeight - 10);
+  p.text(scrollingText, scrollTextX + textWidth, canvasHeight - 10);
+  
+          // Textposition aktualisieren
+          scrollTextX -= 1; // Bewegt den Text 2 Pixel nach links pro Frame
+          if (scrollTextX < -textWidth)  {
+            scrollTextX = 0; // Textposition zurücksetzen, wenn der Text komplett durchgelaufen ist
+          }
         currentX += rectWidth;
         if (rectHeight > maxHeight) {
           maxHeight = rectHeight;
@@ -117,7 +141,7 @@ const DataVisualization = ({ resultsData }) => {
     function drawVerticalText(text, x, y, p) {
       p.push();
       p.fill(255); // Weißer Text
-      p.textSize(100);
+      p.textSize(80);
       p.textFont('Arial');
       p.textStyle(p.BOLD);
       p.translate(x, y);
