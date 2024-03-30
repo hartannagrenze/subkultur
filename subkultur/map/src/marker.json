@@ -1,17 +1,5 @@
 [
-  {
-      "id": 1,
-      "name": "EineWeltHaus",
-      "latitude": 48.13752746582031,
-      "longitude": 11.552783966064453,
-      "address": "Schwanthalerstraße 80, 80336 München-Ludwigsvorstadt-Isarvorstadt",
-      "image": "/marker1.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
-    },
+ 
     {
       "id": 2,
       "name": "Bellevue di Monaco",
@@ -19,7 +7,7 @@
       "longitude": 11.574302948954127,
       "address": "Müllerstraße 2-6, 80469 München-Altstadt-Lehel",
       "image": "/marker2.png",
-      "zeiten": "Programm abhängig",
+      "zeiten": "Café Di-Fr 11:00 - 22:00 Sa 10:00 - 22:00",
       "betreibende": "Sozialgenossenschaft",
       "kommerziell": "Nur die Gastro",
       "grösse": "8 000qm",
@@ -32,11 +20,11 @@
       "longitude": 11.573995911303502,
       "address": "Blumenstraße 7, 80469 München-Altstadt-Lehel",
       "image": "/marker3.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Täglich wechselndes Angebot",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
+      "grösse": "250qm",
+      "gestaltung": "Ja"
     },
     {
       "id": 4,
@@ -61,7 +49,7 @@
       "zeiten": "Programm abhängig ",
       "betreibende": "Verein",
       "kommerziell": "Nur die Gastro",
-      "grösse": "Lorem Impsum",
+      "grösse": "300 qm",
       "gestaltung": "Ja, anfragen"
     },
     {
@@ -74,7 +62,7 @@
       "zeiten": "Programm abhängig",
       "betreibende": "KJR, weitgehend selbstverwaltet",
       "kommerziell": "Nein",
-      "grösse": "Lorem Impsum",
+      "grösse": "200 qm",
       "gestaltung": "möglich"
     },
     {
@@ -109,7 +97,7 @@
       "latitude": 48.2558782,
       "longitude": 11.4326237,
       "address": "Brunngartenstraße 7, 85221 Dachau",
-      "image": "/marker0.png",
+      "image": "/marker9.png",
       "zeiten": "Programm abhängig",
       "betreibende": "Verein",
       "kommerziell": "Nein",
@@ -123,11 +111,11 @@
       "longitude": 11.570796932203326,
       "address": "Blumenstraße 29, 80331 München-Altstadt-Lehel",
       "image": "/marker10.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Jeden Mittwoch 18:00 - 0:00",
+      "betreibende": "Selbstverwalteter gemeinnütziger Verein",
+      "kommerziell": "Nein",
+      "grösse": "199 Personen",
+      "gestaltung": "Ja "
     },   
     {
       "id": 11,
@@ -139,7 +127,7 @@
       "zeiten": "Programm abgängig",
       "betreibende": "Verein",
       "kommerziell": "Teilweise, je nach Veranstaltung",
-      "grösse": "250qm",
+      "grösse": "300qm",
       "gestaltung": "Ja"
     },   
     {
@@ -149,11 +137,11 @@
       "longitude": 11.622738227644533,
       "address": "Oberföhringer Str. 156, 81925 München-Bogenhausen",
       "image": "/marker12.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Donnerstag - Sonntag, Angebotsabhängig",
+      "betreibende": "Verein ",
+      "kommerziell": "Teilweise",
+      "grösse": "400qm",
+      "gestaltung": "mit Engagement möglich"
     },  
     {
       "id": 13,
@@ -165,7 +153,7 @@
       "zeiten": "Programm-abhängig",
       "betreibende": "Verein und GmbH",
       "kommerziell": "Teilweise",
-      "grösse": "Lorem Impsum",
+      "grösse": "350 qm",
       "gestaltung": "Ja im Verein"
     },   
     {
@@ -178,7 +166,7 @@
       "zeiten": "Programm-abhängig ",
       "betreibende": "Verein",
       "kommerziell": "Teilweise",
-      "grösse": "Lorem Impsum",
+      "grösse": "1500 qm",
       "gestaltung": "Im Verein"
     },   
     {
@@ -217,8 +205,8 @@
       "zeiten": "bei Veranstaltungen",
       "betreibende": "Einzelpersonen und KJR",
       "kommerziell": "Nein",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "grösse": "jedes Stockwerk 300qm",
+      "gestaltung": "Jede*r darf kommen und Veranstaltungen vorschlagen"
     },
     {
       "id": 18,
@@ -227,11 +215,11 @@
       "longitude": 11.6430967,
       "address": "Heinrich-Wieland-Straße 90, 81735 München",
       "image": "/marker18.png",
-      "zeiten": "Mo-Fr 8-18 Uhr, Sa 8-12 Uhr, So 10-12 Uhr",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "zeiten": "Sogut wie immer",
+      "betreibende": "Verein",
+      "kommerziell": "Nein",
+      "grösse": "2000 qm",
+      "gestaltung": "kostenlos jeden Donnerstag im Platzcafé"
     },
     {
       "id": 19,
@@ -264,10 +252,10 @@
       "name": "Flaucher",
       "latitude": 48.10626899641361,
       "longitude": 11.555030434679736,
-      "address": "Lorem Ipsum",
+      "address": "Thalkirchen",
       "image": "/marker21.png",
       "zeiten": "immer",
-      "betreibende": "Lorem Ipsum",
+      "betreibende": "Stadt München",
       "kommerziell": "Nein",
       "grösse": "0,4 qkm",
       "gestaltung": "Liegen, Baden, Grillen"
@@ -304,12 +292,12 @@
       "latitude": 48.0920368,
       "longitude": 11.5256791,
       "address": "Siemensallee",
-      "image": "/marker0.png",
-      "zeiten": "Lorem Ipsum",
-      "betreibende": "Lorem Ipsum",
-      "kommerziell": "Lorem Ipsum",
-      "grösse": "Lorem Impsum",
-      "gestaltung": "Lorem Ipsum"
+      "image": "/marker27.png",
+      "zeiten": "keine",
+      "betreibende": "ehem. Siemens",
+      "kommerziell": "Teilweise, je nach Veranstaltung",
+      "grösse": "30000 qm",
+      "gestaltung": "möglich aber illegal"
     },
     {
       "id": 28,
@@ -317,7 +305,7 @@
       "latitude": 48.13356958389794,
       "longitude": 11.617568023393726,
       "address": "Neumarkter Str. 81673 München-Berg am Laim",
-      "image": "/marker0.png",
+      "image": "/marker28.png",
       "zeiten": "Immer",
       "betreibende": "Bima",
       "kommerziell": "hoffentlich nie",
@@ -330,7 +318,7 @@
       "latitude": 48.11175641402692,
       "longitude": 11.554704699566333,
       "address": "Hans-Preißinger-Straße 2, 81379 München",
-      "image": "/marker0.png",
+      "image": "/marker29.gif",
       "zeiten": "Jeden 1 Sonntag des Monats Plenum",
       "betreibende": "Verein",
       "kommerziell": "Nein",
