@@ -63,7 +63,7 @@
       "betreibende": "KJR, weitgehend selbstverwaltet",
       "kommerziell": "Nein",
       "grösse": "200 qm",
-      "gestaltung": "möglich"
+      "gestaltung": "möglich, buchbar nach Absprache"
     },
     {
       "id": 7,
@@ -189,7 +189,7 @@
       "longitude": 11.593031434131507,
       "address": "Schlierseestraße 21, 81541 München-Obergiesing-Fasangarten",
       "image": "/marker16.png",
-      "zeiten": "Nicht vorhanden",
+      "zeiten": "Samstag Barrio Abend",
       "betreibende": "Verein",
       "kommerziell": "Nein",
       "grösse": "ca 20qm",
@@ -215,8 +215,8 @@
       "longitude": 11.6430967,
       "address": "Heinrich-Wieland-Straße 90, 81735 München",
       "image": "/marker18.png",
-      "zeiten": "Sogut wie immer",
-      "betreibende": "Verein",
+      "zeiten": "Donnerstag 20:00",
+      "betreibende": "Einzelpersonen",
       "kommerziell": "Nein",
       "grösse": "2000 qm",
       "gestaltung": "kostenlos jeden Donnerstag im Platzcafé"
@@ -271,7 +271,7 @@
       "betreibende": "Verein",
       "kommerziell": "Nur die Bar",
       "grösse": "2000 qm",
-      "gestaltung": "Ja, Im Verein anfragen"
+      "gestaltung": "Ja, Im Verein und Community Gärten"
     },
     {
       "id": 26,
@@ -294,7 +294,7 @@
       "address": "Siemensallee",
       "image": "/marker27.png",
       "zeiten": "keine",
-      "betreibende": "ehem. Siemens",
+      "betreibende": "Rock Capital Group ehem. Siemens",
       "kommerziell": "Teilweise, je nach Veranstaltung",
       "grösse": "30000 qm",
       "gestaltung": "möglich aber illegal"
@@ -306,11 +306,11 @@
       "longitude": 11.617568023393726,
       "address": "Neumarkter Str. 81673 München-Berg am Laim",
       "image": "/marker28.png",
-      "zeiten": "Immer",
+      "zeiten": "Nie",
       "betreibende": "Bima",
       "kommerziell": "hoffentlich nie",
       "grösse": "2000 qm",
-      "gestaltung": "nein"
+      "gestaltung": "möglich aber illegal"
     },
     {
       "id": 29,
@@ -322,8 +322,8 @@
       "zeiten": "Jeden 1 Sonntag des Monats Plenum",
       "betreibende": "Verein",
       "kommerziell": "Nein",
-      "grösse": "40 Menschen",
-      "gestaltung": "Sehr erwünscht!"
+      "grösse": "40+ Menschen",
+      "gestaltung": "Sehr erwünscht! Scanne die QR Codes auf den Plakaten!"
     }
 
 ]
